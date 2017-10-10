@@ -20,7 +20,6 @@
 	          if (!has_custom_logo()) {
 	            ?>
 	            <a class="logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-<<<<<<< HEAD
 	            <img class="img-responsive center-block default-logo" src="<?php echo get_template_directory_uri() . '/assets/images/wonkasoft-logo.png'; ?>" /></a>
 	            <?php
 	          } else { 
