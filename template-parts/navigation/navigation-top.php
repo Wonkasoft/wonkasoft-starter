@@ -2,12 +2,12 @@
 /**
  * This file is for setting up the top navigation on the page.
  *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
+ * This is the template that displays all of the navigation.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package WordPress
- * @subpackage Real_E_State
+ * @subpackage wonkasoft-starter
  * @since 1.0.0
  * @version 1.0.0
  */
@@ -20,12 +20,10 @@
 	          if (!has_custom_logo()) {
 	            ?>
 	            <a class="logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-	            <img class="img-responsive center-block default-logo" src="<?php echo get_template_directory_uri() . '/assets/images/real-e-state-logo.png'; ?>" />here</a>
-	            <?php 
+	            <img class="img-responsive center-block default-logo" src="<?php echo get_template_directory_uri() . '/assets/images/wonkasoft-logo.png'; ?>" /></a>
+	            <?php
 	          } else { 
 	              $custom_logo_id = get_theme_mod( 'custom-logo' );
-	              here
-	            }
 	            ?>
 	              <a class="logo-link text-center" href="<?php echo esc_url(home_url('/')); ?>">
 	            		<img class="img-responsive center-block custom-logo" src="<?php echo wp_get_attachment_url( $custom_logo_id ); ?>" /></a>

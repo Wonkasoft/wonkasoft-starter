@@ -2,12 +2,12 @@
 /**
  * The header for our theme
  *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
+ * This is the template that displays all of the <head> section and <header> section.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package WordPress
- * @subpackage Wonkasoft_starter
+ * @subpackage Wonkasoft-starter
  * @since 1.0.0
  * @version 1.0.0
  */
@@ -26,12 +26,10 @@
 <div id="page-wrap" class="site">
 	<header id="masthead" class="container-fluid" role="banner">
 		<div class="row">
-			<?php if ( has_nav_menu( 'top' ) ) : ?>
 				<div class="navigation-top">
 					<div class="wrap">
-						<?php get_template_part( 'template-parts/navigation', 'navigation-top' ); ?>
+						<?php get_template_part( 'template-parts/navigation/navigation', 'top' ); ?>
 					</div><!-- .wrap -->
 				</div><!-- .navigation-top -->
-			<?php endif; ?>
 		</div><!-- .row -->
 	</header><!-- #masthead -->

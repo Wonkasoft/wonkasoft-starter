@@ -83,7 +83,7 @@ function wonkasoft_starter_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'real_e_state_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'wonkasoft_starter_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
