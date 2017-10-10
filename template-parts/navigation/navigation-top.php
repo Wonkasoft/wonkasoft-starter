@@ -20,11 +20,10 @@
 	          if (!has_custom_logo()) {
 	            ?>
 	            <a class="logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-	            <img class="img-responsive center-block default-logo" src="<?php echo get_template_directory_uri() . '/assets/images/real-e-state-logo.png'; ?>" />here</a>
+	            <img class="img-responsive center-block default-logo" src="<?php echo get_template_directory_uri() . '/assets/images/real-e-state-logo.png'; ?>" /></a>
 	            <?php 
 	          } else { 
 	              $custom_logo_id = get_theme_mod( 'custom-logo' );
-	              here
 	            }
 	            ?>
 	              <a class="logo-link text-center" href="<?php echo esc_url(home_url('/')); ?>">
