@@ -4,7 +4,7 @@
  * 
  */
 
-if ( ! function_exists( 'real_e_state_setup' ) ) :
+if ( ! function_exists( 'wonkasoft_starter_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -12,14 +12,14 @@ if ( ! function_exists( 'real_e_state_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function real_e_state_setup() {
+function wonkasoft_starter_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 * If you're building a theme based on Real e-state, use a find and replace
 	 * to change 'real-e-state' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'real-e-state', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'wonkasoft-starter', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -42,32 +42,32 @@ function real_e_state_setup() {
 	// This theme uses wp_nav_menu() in five locations.
 	// This is the Primary Main Title Menu and used in the header.php file
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'real-e-state' ),
+		'menu-1' => esc_html__( 'Primary', 'wonkasoft-starter' ),
 	) );
 
 	// This is the Sub Menu and used in the header.php file
 	register_nav_menus( array(
-		'menu-2' => esc_html__( 'SubMenu', 'real-e-state' ),
+		'menu-2' => esc_html__( 'SubMenu', 'wonkasoft-starter' ),
 	) );
 
 	// This menu is on the footer for the explore menu and used in the footer.php file
 	register_nav_menus( array(
-		'menu-3' => esc_html__( 'Explore', 'real-e-state' ),
+		'menu-3' => esc_html__( 'Explore', 'wonkasoft-starter' ),
 	) );
 
 	// This menu is on the footer for the about menu and used in the footer.php file
 	register_nav_menus( array(
-		'menu-4' => esc_html__( 'About', 'real-e-state' ),
+		'menu-4' => esc_html__( 'About', 'wonkasoft-starter' ),
 	) );
 
 	// This menu is on the footer for the contact menu and used in the footer.php file
 	register_nav_menus( array(
-		'menu-5' => esc_html__( 'Contact', 'real-e-state' ),
+		'menu-5' => esc_html__( 'Contact', 'wonkasoft-starter' ),
 	) );
 
 	// This menu is on the footer for the connect menu and used in the footer.php file
 	register_nav_menus( array(
-		'menu-6' => esc_html__( 'Connect', 'real-e-state' ),
+		'menu-6' => esc_html__( 'Connect', 'wonkasoft-starter' ),
 	) );
 
 	/*
@@ -104,12 +104,12 @@ function real_e_state_setup() {
 	) );
 }
 endif;
-add_action( 'after_setup_theme', 'real_e_state_setup' );
+add_action( 'after_setup_theme', 'wonkasoft_starter_setup' );
 
 /**
  * Enqueue scripts and styles.
  */
-function real_e_state_scripts() {
+function wonkasoft_starter_scripts() {
 
 	// Check to see if bootstrap style is already enqueue before setting the enqueue
 	$style = 'bootstrap';
@@ -118,7 +118,7 @@ function real_e_state_scripts() {
 		wp_enqueue_style( $style, get_template_directory_uri() . '/assets/css/bootstrap.min.css', '3.3.7', 'all' );
 	}
 
-	wp_enqueue_style( 'real-e-state-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'wonkasoft-starter-style', get_stylesheet_uri() );
 
 	// Check to see if bootstrap js is already enqueue before setting the enqueue
 	$bootstrapjs = 'bootstrap-js';
@@ -128,4 +128,4 @@ function real_e_state_scripts() {
 	} 
 }
 
-add_action( 'wp_enqueue_scripts', 'real_e_state_scripts' );
+add_action( 'wp_enqueue_scripts', 'wonkasoft_starter_scripts' );

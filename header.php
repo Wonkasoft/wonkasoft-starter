@@ -7,7 +7,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package WordPress
- * @subpackage Real_E_State
+ * @subpackage Wonkasoft_starter
  * @since 1.0.0
  * @version 1.0.0
  */
