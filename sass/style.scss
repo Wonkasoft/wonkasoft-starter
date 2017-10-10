@@ -1,0 +1,39 @@
+/**
+ *  This file should have all styles for this page that are below the fold of the page.
+ */
+/* Media Queries */
+/**
+ * @Media ( min-width: $small )
+ * @Media ( min-width: $medium )
+ * @Media ( min-width: $large )
+ * @Media ( min-width: $xlarge )
+ */
+/* End Media Queries */
+
+/* THEME COLORS */
+$header-color: #3C6595;
+$header-dark: #143B6A;
+$footer-color: #8cc07d;
+@import 'above-fold.min.css';
+
+/* FOOTER AREA */
+#e-state-footer {
+	background: $footer-color;
+	background: -webkit-linear-gradient(-245deg, rgba(164, 255, 137, 0.8) 0%, $footer-color 100%);
+	background: linear-gradient(-245deg, rgba(164, 255, 137, 0.8) 0%, $footer-color 100%);
+	> .row {
+		padding: 15px;
+		height: 55px;
+		&:first-child {
+			height: 245px;
+		}
+	}
+}
+
+
+img.wordpress-logo {
+	display: inline-block;
+	vertical-align: text-bottom;
+}
+
+/* END FOOTER AREA */
