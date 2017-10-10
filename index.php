@@ -14,8 +14,7 @@
 
 get_header(); ?>
 <main id="main" class="container-fluid">
-	<section id="section-1" class="row">
-
+	<section id="above-fold" class="row">
 
 	</section><!-- .row -->
 </main><!-- #main -->
