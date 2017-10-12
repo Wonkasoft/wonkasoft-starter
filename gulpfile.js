@@ -7,7 +7,7 @@ minifyCSS = require('gulp-minify-css'),
 imagemin = require('gulp-imagemin'),
 plumber = require('gulp-plumber'),
 notify = require('gulp-notify'),
-livereload = require('gulp-livereload'),
+browserSync = require('browser-sync').create(),
 fs = require('node-fs'),
 fse = require('fs-extra'),
 json = require('json-file'),
@@ -30,7 +30,7 @@ gulp.task('default', function(){
  
 });
 
-gulp.task('default', ['sass', 'js', 'imgPress', 'watch']);
+gulp.task('default', ['sass', 'js', 'imgPress', 'watch', 'browser-sync']);
 
 gulp.task('init', function() {
  
@@ -40,12 +40,12 @@ gulp.task('init', function() {
  
 });
 
-gulp.task('files', function() {
- 
-  	gulp.src('./*.php')
-
-  		.pipe(livereload());
- 
+// Static server
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        proxy: 'localhost/' + themeName,
+        port: 80
+    });
 });
 
 gulp.task('sass', function () {
@@ -62,7 +62,7 @@ gulp.task('sass', function () {
  
        .pipe(gulp.dest('./assets/css'))
 
-       .pipe(livereload());
+       .pipe(browserSync.stream());
  
 });
  
@@ -83,7 +83,7 @@ gulp.task('js', function () {
 		 
 		.pipe(gulp.dest('./assets/js'))
 
-		.pipe(livereload());
+		.pipe(browserSync.stream());
  
 });
 
@@ -103,20 +103,18 @@ gulp.task('imgPress', function() {
  
     	.pipe(gulp.dest('./assets/images'))
 
-    	.pipe(livereload());
+    	.pipe(browserSync.stream());
  
 });
 
 gulp.task('watch', function() {
 
-	livereload.listen({ start: true });
+	gulp.watch('**/*.php').on('change', browserSync.reload);
  
-	gulp.watch('./src/sass/*.scss', ['sass']);
+	gulp.watch('./src/sass/*.scss', ['sass']).on('change', browserSync.reload);
  
-	gulp.watch('./src/js/*.js', ['js']);
+	gulp.watch('./src/js/*.js', ['js']).on('change', browserSync.reload);
  
-	gulp.watch('./src/images/*.{png,jpg,gif}', ['imgPress']);
-
-	gulp.watch('./*.php', ['files']);
+	gulp.watch('./src/images/*.{png,jpg,gif}', ['imgPress']).on('change', browserSync.reload);
  
 });
