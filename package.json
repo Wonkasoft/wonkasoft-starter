@@ -35,5 +35,6 @@
     "json-file": "^0.1.0",
     "node-fs": "^0.1.7",
     "path": "^0.12.7"
-  }
+  },
+  "siteName": "wonkasoft-starter"
 }
