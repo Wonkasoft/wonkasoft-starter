@@ -10,11 +10,7 @@
  */
 /* End Media Queries */
 
-/* THEME COLORS */
-$header-color: #3C6595;
-$header-dark: #143B6A;
-$footer-color: #8cc07d;
-@import 'above-fold.min.css';
+@import '_above-fold.scss';
 
 /* FOOTER AREA */
 #e-state-footer {
@@ -30,6 +26,10 @@ $footer-color: #8cc07d;
 	}
 }
 
+img.wonka-logo {
+    display: inline-block;
+    vertical-align: text-bottom;
+}
 
 img.wordpress-logo {
 	display: inline-block;
