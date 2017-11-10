@@ -3,7 +3,7 @@ sass = require('gulp-sass'),
 jshint = require('gulp-jshint'),
 concat = require('gulp-concat'),
 path = require('path'),
-minifyCSS = require('gulp-minify-css'),
+cleanCSS = require('gulp-clean-css'),
 imagemin = require('gulp-imagemin'),
 plumber = require('gulp-plumber'),
 notify = require('gulp-notify'),
@@ -11,7 +11,7 @@ browserSync = require('browser-sync').create(),
 fs = require('node-fs'),
 fse = require('fs-extra'),
 json = require('json-file'),
-uglify = require('gulp-uglify'),
+jsmin = require('gulp-js-minify'),
 siteName = json.read('./package.json').get('siteName'),
 themeDir = '../' + themeName,
 plumberErrorHandler = { errorHandler: notify.onError({
@@ -56,7 +56,7 @@ gulp.task('sass', function () {
  
        .pipe(sass())
 
-       .pipe(minifyCSS())
+       .pipe(cleanCSS())
 
        .pipe(concat('style.min.css'))
  
@@ -77,7 +77,7 @@ gulp.task('js', function () {
  
 		.pipe(jshint.reporter('fail'))
 
-		.pipe(uglify())
+		.pipe(jsmin())
 		 
 		.pipe(concat(themeName + '.min.js'))
 		 
