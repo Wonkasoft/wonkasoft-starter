@@ -1,6 +1,6 @@
 # [Wonkasoft](http://wonkasoft.com/wonkasoft-starter)
 
-Custom Built for Wonkasoft development team
+Custom Built for the Wonkasoft development team
 
 * Project: [github.com/wonkasoft/wonkasoft-starter](https://github.com/wonkasoft/wonkasoft-starter)
 * Website: [wonkasoft.com](http://wonkasoft.com)
