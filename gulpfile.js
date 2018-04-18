@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
 sass = require('gulp-sass'),
+sourcemaps = require('gulp-sourcemaps'),
 jshint = require('gulp-jshint'),
 concat = require('gulp-concat'),
 path = require('path'),
@@ -14,7 +15,7 @@ json = require('json-file'),
 jsmin = require('gulp-js-minify'),
 themeName = json.read('./package.json').get('name'),
 siteName = json.read('./package.json').get('siteName'),
-themeDir = '../' + siteName,
+themeDir = '../' + themeName,
 plumberErrorHandler = { errorHandler: notify.onError({
  
     title: 'Gulp',
@@ -44,14 +45,13 @@ gulp.task('init', function() {
 // Static server
 gulp.task('browser-sync', function() {
     browserSync.init({
-        proxy: 'localhost/' + siteName,
-        port: 80
+        proxy: 'localhost/' + siteName
     });
 });
 
 gulp.task('sass', function () {
  
-    gulp.src('./src/sass/*.scss')
+    return gulp.src('./src/sass/*.scss')
 
     	.pipe(plumber(plumberErrorHandler))
  
@@ -70,7 +70,7 @@ gulp.task('sass', function () {
 
 gulp.task('js', function () {
  
-	gulp.src('./src/js/*.js')
+	return gulp.src('./src/js/*.js')
 
 		.pipe(plumber(plumberErrorHandler))
  
@@ -90,7 +90,7 @@ gulp.task('js', function () {
 
 gulp.task('imgPress', function() {
  
-  gulp.src('./src/images/*.{png,jpg,gif}')
+  return gulp.src('./images/*.{png,jpg,jpeg,gif,PNG,JPG,GIF,JPEG}')
 
 	.pipe(plumber(plumberErrorHandler))
  
@@ -116,6 +116,6 @@ gulp.task('watch', function() {
  
 	gulp.watch('./src/js/*.js', ['js']).on('change', browserSync.reload);
  
-	gulp.watch('./src/images/*.{png,jpg,gif}', ['imgPress']).on('change', browserSync.reload);
+	gulp.watch('./images/*.{png,jpg,gif,jpeg,PNG,JPG,GIF,JPEG}', ['imgPress']).on('change', browserSync.reload);
  
 });
