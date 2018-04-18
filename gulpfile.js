@@ -17,105 +17,134 @@ themeName = json.read('./package.json').get('name'),
 siteName = json.read('./package.json').get('siteName'),
 themeDir = '../' + themeName,
 plumberErrorHandler = { errorHandler: notify.onError({
- 
-    title: 'Gulp',
- 
-    message: 'Error: <%= error.message %>'
- 
-  })
- 
+
+	title: 'Gulp',
+
+	message: 'Error: <%= error.message %>',
+
+	line: 'Line: <%= line %>'
+
+})
+
 };
 
 gulp.task('default', function(){
- 
-    console.log('default gulp task...');
- 
+
+	console.log('default gulp task...');
+
 });
 
-gulp.task('default', ['sass', 'js', 'imgPress', 'watch', 'browser-sync']);
+gulp.task('default', ['sass', 'sass2', 'js', 'imgPress', 'watch', 'browser-sync']);
 
 gulp.task('init', function() {
- 
-  fs.mkdirSync(themeDir, 765, true);
- 
-  fse.copySync('theme-boilerplate', themeDir + '/');
- 
+
+	fs.mkdirSync(themeDir, 765, true);
+
+	fse.copySync('theme-boilerplate', themeDir + '/');
+
 });
 
 // Static server
 gulp.task('browser-sync', function() {
-    browserSync.init({
-        proxy: 'localhost/' + siteName
-    });
+	browserSync.init({
+		proxy: 'localhost/' + siteName,
+	});
 });
 
 gulp.task('sass', function () {
- 
-    return gulp.src('./src/sass/*.scss')
 
-    	.pipe(plumber(plumberErrorHandler))
- 
-       .pipe(sass())
+	return gulp.src('./sass/style.scss')
 
-       .pipe(cleanCSS())
+	.pipe(sourcemaps.init())
 
-       .pipe(concat('style.min.css'))
- 
-       .pipe(gulp.dest('./assets/css'))
+	.pipe(plumber(plumberErrorHandler))
 
-       .pipe(browserSync.stream());
- 
+	.pipe(sass())
+
+	.pipe(cleanCSS())
+
+	.pipe(concat('style.css'))
+
+	.pipe(sourcemaps.write('./maps'))
+
+	.pipe(gulp.dest('./'))
+
+	.pipe(browserSync.stream());
+
 });
- 
+
+gulp.task('sass2', function () {
+
+	return gulp.src('./sass/woocommerce.scss')
+
+	.pipe(sourcemaps.init())
+
+	.pipe(plumber(plumberErrorHandler))
+
+	.pipe(sass())
+
+	.pipe(cleanCSS())
+
+	.pipe(concat('woocommerce.css'))
+
+	.pipe(sourcemaps.write('./maps'))
+
+	.pipe(gulp.dest('./'))
+
+	.pipe(browserSync.stream());
+
+});
 
 gulp.task('js', function () {
- 
-	return gulp.src('./src/js/*.js')
 
-		.pipe(plumber(plumberErrorHandler))
- 
-		.pipe(jshint())
- 
-		.pipe(jshint.reporter('fail'))
+	return gulp.src('./js/wonkamizer-js.js')
 
-		.pipe(jsmin())
-		 
-		.pipe(concat(themeName + '.min.js'))
-		 
-		.pipe(gulp.dest('./assets/js'))
+	.pipe(plumber(plumberErrorHandler))
 
-		.pipe(browserSync.stream());
- 
+	.pipe(jshint())
+
+	.pipe(jshint.reporter('fail'))
+
+	.pipe(jsmin())
+
+	.pipe(concat(themeName + '.min.js'))
+
+	.pipe(gulp.dest('./assets/js'))
+
+	.pipe(browserSync.stream());
+
 });
 
 gulp.task('imgPress', function() {
- 
-  return gulp.src('./images/*.{png,jpg,jpeg,gif,PNG,JPG,GIF,JPEG}')
+
+	return gulp.src('./images/*.{png,jpg,jpeg,gif,PNG,JPG,GIF,JPEG}')
 
 	.pipe(plumber(plumberErrorHandler))
- 
-	.pipe(imagemin({
- 
-      		optimizationLevel: 7,
- 
-      		progressive: true
- 
-    	}))
- 
-    	.pipe(gulp.dest('./assets/images'))
 
-    	.pipe(browserSync.stream());
- 
+	.pipe(imagemin({
+
+		optimizationLevel: 7,
+
+		progressive: true
+
+	}))
+
+	.pipe(gulp.dest('./assets/img'))
+
+	.pipe(browserSync.stream());
+
 });
 
 gulp.task('watch', function() {
 
 	gulp.watch('**/*.php').on('change', browserSync.reload);
- 
-	gulp.watch('./src/sass/*.scss', ['sass']).on('change', browserSync.reload);
- 
-	gulp.watch('./src/js/*.js', ['js']).on('change', browserSync.reload);
- 
+
+	gulp.watch('./sass/*/*.scss', ['sass', 'sass2']).on('change', browserSync.reload);
+
+	gulp.watch('./sass/*/*/*.scss', ['sass', 'sass2']).on('change', browserSync.reload);
+
+	gulp.watch('./js/*.*', ['js']).on('change', browserSync.reload);
+
 	gulp.watch('./images/*.{png,jpg,gif,jpeg,PNG,JPG,GIF,JPEG}', ['imgPress']).on('change', browserSync.reload);
- 
+
 });

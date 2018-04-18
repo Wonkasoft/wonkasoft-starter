@@ -117,8 +117,18 @@ add_action( 'widgets_init', 'wonkasoft_starter_widgets_init' );
  * Enqueue scripts and styles.
  */
 function wonkasoft_starter_scripts() {
+	/**
+	 * List of style enqueues
+	 */
+	wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', array(), false, 'all' );
+	
 	wp_enqueue_style( 'wonkasoft-starter-style', get_stylesheet_uri() );
 
+	/**
+	 * List of scripts enqueues
+	 */
+	wp_enqueue_script( 'boostrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', array(), 'all', true );
+	
 	wp_enqueue_script( 'wonkasoft-starter-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'wonkasoft-starter-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
