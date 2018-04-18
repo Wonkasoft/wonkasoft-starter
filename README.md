@@ -10,7 +10,7 @@ Custom Built for Wonkasoft development team
 * Author : [Andrew Enriquez](http://wonkasoft.com)
 
 ## Contributors (in order of pull request)
-[Louis Lister](https://github.com/llister15), [Rudy Lister](https://github.com/MrLister),[Andrew Enriquez](https://github.com/drewe0327)
+[Louis Lister](https://github.com/llister15), [Rudy Lister](https://github.com/MrLister), [Andrew Enriquez](https://github.com/drewe0327)
 
 
 ## Features
