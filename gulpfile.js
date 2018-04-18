@@ -12,6 +12,7 @@ fs = require('node-fs'),
 fse = require('fs-extra'),
 json = require('json-file'),
 jsmin = require('gulp-js-minify'),
+themeName = json.read('./package.json').get('name'),
 siteName = json.read('./package.json').get('siteName'),
 themeDir = '../' + siteName,
 plumberErrorHandler = { errorHandler: notify.onError({
