@@ -13,11 +13,7 @@
 */
 get_header(); ?>
 
-<div id="primary" class="content-area">
 	<main id="main" class="site-main" role="main">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-9">
 					<?php
 					// start loop
 					while ( have_posts() ) : the_post();
@@ -34,13 +30,9 @@ get_header(); ?>
 					// End of the loop
 					endwhile;
 					?>
-				</div>  <!-- .col-9 -->
-				<?php get_sidebar(); ?>
-			</div>  <!-- .row -->
-		</div> <!-- .container-fluid -->
 	</main><!-- .site-main-->
 
-</div><!-- .content-area -->
+<?php get_sidebar(); ?>
 
 <?php 
 

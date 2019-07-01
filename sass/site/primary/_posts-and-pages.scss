@@ -1,6 +1,17 @@
 #page {
 	position: relative;
 	min-height: 100%;
+	display: grid;
+	grid-template-columns: repeat( 4, 1fr );
+	grid-template-rows: 150px auto 80px;
+	grid-template-areas: 
+	"header header header header"
+	"main main main sidebar"
+	"footer footer footer footer";
+}
+
+#masthead {
+	grid-area: header;
 }
 
 .sticky {
@@ -26,10 +37,17 @@
 	margin: 0 0 1.5em;
 }
 
+main#main {
+	grid-area: main;
+}
+
+aside#secondary {
+	grid-area: sidebar;
+}
+
 footer#colophon {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
+	position: relative;
+	grid-area: footer;
 	text-align: center;
 	
 }

@@ -27,27 +27,13 @@ plumberErrorHandler = { errorHandler: notify.onError({
 })
 
 };
-
-gulp.task('default', function(){
-
-	console.log('default gulp task...');
-
-});
-
-gulp.task('default', ['sass', 'sass2', 'js', 'imgPress', 'watch', 'browser-sync']);
-
-gulp.task('init', function() {
-
-	fs.mkdirSync(themeDir, 765, true);
-
-	fse.copySync('theme-boilerplate', themeDir + '/');
-
-});
+sass.compiler = require('node-sass');
 
 // Static server
 gulp.task('browser-sync', function() {
 	browserSync.init({
-		proxy: 'localhost/' + siteName,
+		proxy: 'https://localhost/' + siteName,
+		port: 4000
 	});
 });
 
@@ -91,7 +77,12 @@ gulp.task('sass2', function () {
 
 	.pipe(gulp.dest('./'))
 
-	.pipe(browserSync.stream());
+	.pipe(browserSync.stream())
+
+	.pipe(notify({
+		message: "✔︎ CSS task complete",
+		onLast: true
+	}));
 
 });
 
@@ -103,15 +94,22 @@ gulp.task('js', function () {
 
 	.pipe(jshint())
 
+	.pipe(jshint.reporter('default'))
+
 	.pipe(jshint.reporter('fail'))
 
 	.pipe(jsmin())
 
 	.pipe(concat(themeName + '.min.js'))
+	
+	.pipe(sourcemaps.write('./maps'))
 
 	.pipe(gulp.dest('./assets/js'))
 
-	.pipe(browserSync.stream());
+	.pipe(browserSync.stream())
+
+	.pipe(notify({ message: "✔︎ JS task complete"}));
+
 
 });
 
@@ -137,14 +135,14 @@ gulp.task('imgPress', function() {
 
 gulp.task('watch', function() {
 
-	gulp.watch('**/*.php').on('change', browserSync.reload);
+	gulp.watch('./**/*.php').on('change', browserSync.reload);
 
-	gulp.watch('./sass/*/*.scss', ['sass', 'sass2']).on('change', browserSync.reload);
+	gulp.watch('./sass/**/*.scss', gulp.series(gulp.parallel('sass', 'sass2'))).on('change', browserSync.reload);
 
-	gulp.watch('./sass/*/*/*.scss', ['sass', 'sass2']).on('change', browserSync.reload);
+	gulp.watch('./js/**/*.js', gulp.series(gulp.parallel('js'))).on('change', browserSync.reload);
 
-	gulp.watch('./js/*.*', ['js']).on('change', browserSync.reload);
-
-	gulp.watch('./images/*.{png,jpg,gif,jpeg,PNG,JPG,GIF,JPEG}', ['imgPress']).on('change', browserSync.reload);
+	gulp.watch('./images/*.{png,jpg,gif,jpeg,PNG,JPG,GIF,JPEG}', gulp.series(gulp.parallel('imgPress'))).on('change', browserSync.reload);
 
 });
+
+gulp.task('default', gulp.series(gulp.parallel('sass', 'sass2', 'js', 'imgPress', 'watch', 'browser-sync')));
