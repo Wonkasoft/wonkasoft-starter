@@ -30,9 +30,9 @@ get_header(); ?>
 					// End of the loop
 					endwhile;
 					?>
+
 	</main><!-- .site-main-->
 
-<?php get_sidebar(); ?>
 
 <?php 
 

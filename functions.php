@@ -121,6 +121,8 @@ function wonkasoft_starter_scripts() {
 	 * List of style enqueues
 	 */
 	wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', array(), false, 'all' );
+
+	wp_enqueue_style( 'fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 	
 	wp_enqueue_style( 'wonkasoft-starter-style', get_stylesheet_uri() );
 

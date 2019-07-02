@@ -1,8 +1,13 @@
 .main-navigation {
-	clear: both;
-	display: block;
-	float: left;
+	display: grid;
+	grid-template-areas: 
+	". nav-menu nav-menu .";
+	align-items: center;
 	width: 100%;
+	background: #eeeeee;
+	grid-area: header-menu;
+	height: 50px;
+	@include prefix( box-shadow, 0 1px 3px inset rgba( 0, 0, 0, 0.3 ), o moz webkit );
 
 	ul {
 		display: none;
@@ -11,11 +16,11 @@
 		padding-left: 0;
 
 		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 			float: left;
 			position: absolute;
 			top: 100%;
 			left: -999em;
+			@include prefix( box-shadow, 0 1px 3px rgba( 0, 0, 0, 0.3 ), o moz webkit );
 			z-index: 99999;
 
 			ul {
@@ -59,14 +64,25 @@
 	}
 
 	a {
+		color: #555;
 		display: block;
 		text-decoration: none;
+		@include prefix( transition, all .3s ease-in-out, o moz webkit );
+
+		&:hover {
+			color: #007bff;
+		}
 	}
 
 	.current_page_item > a,
 	.current-menu-item > a,
 	.current_page_ancestor > a,
 	.current-menu-ancestor > a {
+		color: #08a;
+
+		&:hover {
+			color: #007bff;
+		}
 	}
 }
 
@@ -80,8 +96,16 @@
 	.menu-toggle {
 		display: none;
 	}
+
+	nav#site-navigation > div:first-of-type {
+		grid-area: nav-menu;
+	}
+
 	.main-navigation ul {
-		display: block;
+		display: grid;
+		justify-content: space-evenly;
+		grid-auto-columns: auto;
+		grid-auto-flow: column;
 	}
 }
 

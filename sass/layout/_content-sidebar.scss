@@ -1,20 +1,9 @@
-.content-area {
-	float: left;
-	margin: 0 (-$size__site-sidebar) 0 0;
-	width: $size__site-main;
-}
+aside#secondary {
+  grid-area: sidebar;
+  align-self: stretch;
+  padding: 0 15px;
 
-.site-main {
-	margin: 0 $size__site-sidebar 0 0;
-}
-
-.site-content .widget-area {
-	float: right;
-	overflow: hidden;
-	width: $size__site-sidebar;
-}
-
-.site-footer {
-	clear: both;
-	width: $size__site-main;
+  @include media-breakpoint( md ) {
+    border-left: 2px solid rgba( #000, .1 );
+  }
 }

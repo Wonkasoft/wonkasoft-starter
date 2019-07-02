@@ -11,9 +11,6 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		
-	</header><!-- .entry-header -->
 
 	<?php wonkasoft_starter_post_thumbnail(); ?>
 
@@ -27,7 +24,6 @@
 			) );
 		?>
 	</div><!-- .entry-content -->
-
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
 			<?php
@@ -50,4 +46,5 @@
 			?>
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
+	<?php get_sidebar(); ?>
 </article><!-- #post-<?php the_ID(); ?> -->

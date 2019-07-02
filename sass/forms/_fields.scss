@@ -31,3 +31,26 @@ select {
 textarea {
 	width: 100%;
 }
+
+form#searchform {
+
+  div.input-group {
+    display: grid;
+    grid-template-columns: repeat( 5, 1fr );
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "search-input search-input search-input search-input search-btn";
+    align-items: stretch;
+    width: 100%;
+  }
+
+  input#s {
+    grid-area: search-input;
+  }
+
+  button#searchsubmit {
+    grid-area: search-btn;
+    border-radius: 0 4px 4px 0;
+    margin-left: -3px;
+  }
+}
