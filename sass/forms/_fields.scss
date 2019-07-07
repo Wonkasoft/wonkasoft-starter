@@ -42,15 +42,30 @@ form#searchform {
     "search-input search-input search-input search-input search-btn";
     align-items: stretch;
     width: 100%;
+    height: 48px;
+    border-radius: 4px 0 0 4px;
+    @include prefix( box-shadow, 0 1px 4px 0 rgba( #0ef, 0 ), o moz webkit );
   }
 
   input#s {
     grid-area: search-input;
+    @include prefix( box-shadow, 0 1px 4px 0 rgba( #0ef, 0 ), o moz webkit );
+
+    &:focus {
+      @include prefix( box-shadow, 0 1px 4px 0 rgba( #0ef, .4 ), o moz webkit );
+    }
   }
 
   button#searchsubmit {
     grid-area: search-btn;
     border-radius: 0 4px 4px 0;
     margin-left: -3px;
+    @include font-size( 1.2 );
+    @include prefix( transition, all .3s ease-in-out, o moz webkit );
+
+    &:hover {
+      background: #0ee;
+      color: #ffffff;
+    }
   }
 }

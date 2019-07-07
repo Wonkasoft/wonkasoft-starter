@@ -29,7 +29,14 @@
 		endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php wonkasoft_starter_post_thumbnail(); ?>
+	<?php
+	if ( has_post_thumbnail() ) :
+		wonkasoft_starter_post_thumbnail(); ?>
+	<?php else : ?>
+		<div class="post-thumbnail">
+			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/wonkasoft-logo.png'; ?>" class="img-responsive wonkasoft-logo-cover" />
+		</div>
+	<?php endif; ?>
 
 	<div class="entry-content">
 		<?php

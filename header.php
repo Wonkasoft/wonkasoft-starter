@@ -32,22 +32,27 @@ $top_message = ( ! empty ( get_theme_mod( 'topbar_message', false ) ) ) ? get_th
 		</div><!-- .contact-number -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'wonkasoft-starter' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+				<span class="hang-a-bur hang-a-bur-top"></span>
+				<span class="hang-a-bur hang-a-bur-mid"></span>
+				<span class="hang-a-bur hang-a-bur-bottom"></span>
+			</button>
 			<?php
 				wp_nav_menu( array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
+					'container_id'	 =>	'top-main',
 				) );
 			?>
 		</nav><!-- #site-navigation -->
 		
 		<div class="site-branding">
+			<div class="custom-logo"><?php the_custom_logo(); ?></div>
 			<?php
-			the_custom_logo();
 			if ( is_front_page() && is_home() ) : ?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<?php else : ?>
-				<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h2><?php bloginfo( 'name' ); ?></h2></a></div>
+				<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1><?php bloginfo( 'name' ); ?></h1></a></div>
 			<?php
 			endif;
 

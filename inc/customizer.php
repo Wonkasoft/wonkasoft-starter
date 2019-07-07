@@ -124,10 +124,69 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	  'topbar_message_control', 
 	  array(
 		'label'       => __( 'Topbar Message Option', 'Wonkasoft_Starter' ),
-		'section'     => 'topbar_messgae_section',
+		'section'     => 'topbar_message_section',
 		'settings'    => 'topbar_message',
 		'type'        => 'text',
 		'description' => 'Topbar message',
+	) ) );
+
+	/**
+	* Website Copyright Info Section
+	*
+	* @since  1.0.0
+	*/
+	$wp_customize->add_section(
+	  'website_copyright_info',
+	  array(
+		'capability'     => 'edit_theme_options',
+		'theme_supports' => '',
+		'priority'       => 100,
+		'title'          => __( 'Website Copyright Info', 'Wonkasoft_Starter' ),
+		'description'    => __( 'Copyright Info', 'Wonkasoft_Starter' ),
+		'panel'          => 'wonkasoft_theme_options',
+	)
+	);
+	
+	/**
+	* Website Copyright Info Section
+	* @since  1.0.0
+	*/
+	$wp_customize->add_setting( 'copyright_bar_color' , array(
+	  'default'           => '',
+	  'transport'         => 'refresh',
+	) );
+
+	// Topbar color Setting Control
+	$wp_customize->add_control( new WP_Customize_Control( 
+	  $wp_customize, 
+	  'copyright_bar_color_control', 
+	  array(
+		'label'       => __( 'Copyright Bar Color Option', 'Wonkasoft_Starter' ),
+		'section'     => 'website_copyright_info',
+		'settings'    => 'copyright_bar_color',
+		'type'        => 'color',
+		'description' => 'Copyright bar color',
+	) ) );
+
+	/**
+	* Website Copyright Info Section
+	* @since  1.0.0
+	*/
+	$wp_customize->add_setting( 'copyright_bar_message' , array(
+	  'default'           => '',
+	  'transport'         => 'refresh',
+	) );
+
+	// Topbar color Setting Control
+	$wp_customize->add_control( new WP_Customize_Control( 
+	  $wp_customize, 
+	  'copyright_bar_message_control', 
+	  array(
+		'label'       => __( 'Copyright Bar Message Option', 'Wonkasoft_Starter' ),
+		'section'     => 'website_copyright_info',
+		'settings'    => 'copyright_bar_message',
+		'type'        => 'text',
+		'description' => 'Copyright Bar message',
 	) ) );
 	/*=====  End of Themes options for customizer  ======*/
 	
