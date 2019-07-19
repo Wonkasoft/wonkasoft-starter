@@ -29,25 +29,46 @@
 header#masthead {
 	width: 100%;
 	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 25px 50px 110px;
+	grid-template-areas:
+	"top-msg"
+	"top-menu"
+	"branding";
 	
 	div.contact-number {
+		display: flex;
 		align-items: center;
+		justify-content: center;
 		text-align: center;
 		height: 25px;
+		grid-area: top-msg;
 
 		span.contact-number-text {
 			display: inline-block;
 		}
 	}
+
+	nav.main-navigation {
+		grid-area: top-menu;
+	}
 	
 	div.site-branding {
+		display: grid;
 		align-items: center;
+		justify-content: center;
+		grid-template-columns: 100%;
+		grid-template-rows: 70px 25px;
+		grid-template-areas:
+		"title-area"
+		"tag-line-area";
 		text-align: center;
-		grid-area: third-line / last line;
+		grid-area: branding;
 
 		div.site-title {
 			text-transform: uppercase;
 			text-align: center;
+			grid-area: title-area;
 
 			a {
 				position: relative;
@@ -88,9 +109,21 @@ header#masthead {
 		}
 
 		div.site-description {
+			grid-area: tag-line-area;
 			text-transform: uppercase;
 			text-align: center;
 			@include font-size( .9 );
+		}
+
+		&-with-logo {
+			justify-content: center;
+			grid-template-areas:
+			"custom-logo title-area"
+			"custom-logo tag-line-area";
+
+			div.custom-logo {
+				grid-area: custom-logo;
+			}
 		}
 	}
 }

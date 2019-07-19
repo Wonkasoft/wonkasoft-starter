@@ -48,16 +48,28 @@ $top_message = ( ! empty ( get_theme_mod( 'topbar_message', false ) ) ) ? get_th
 				) );
 			?>
 		</nav><!-- #site-navigation -->
+		<?php
+		if ( has_custom_logo() ) :  ?>
 		
+		<div class="site-branding-with-logo">
+				<div class="custom-logo"><?php the_custom_logo(); ?></div>
+			<?php
+				if ( is_front_page() && is_home() ) : ?>
+					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<?php else : ?>
+					<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1><?php bloginfo( 'name' ); ?></h1></a></div>
+				<?php
+				endif;
+		else: ?>
 		<div class="site-branding">
-			<div class="custom-logo"><?php the_custom_logo(); ?></div>
-			<?php
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1><?php bloginfo( 'name' ); ?></h1></a></div>
-			<?php
-			endif;
+		<?php
+				if ( is_front_page() && is_home() ) : ?>
+					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<?php else : ?>
+					<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1><?php bloginfo( 'name' ); ?></h1></a></div>
+				<?php
+				endif;
+		endif;
 
 			$description = get_bloginfo( 'description', 'display' );
 			if ( $description || is_customize_preview() ) : ?>
