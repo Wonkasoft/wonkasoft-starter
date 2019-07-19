@@ -14,6 +14,8 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
+	<hr />
+
 	<?php
 	if ( has_post_thumbnail() ) :
 		wonkasoft_starter_post_thumbnail(); ?>

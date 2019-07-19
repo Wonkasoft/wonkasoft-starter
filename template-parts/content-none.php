@@ -13,7 +13,9 @@
 	<header class="page-header">
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'wonkasoft-starter' ); ?></h1>
 	</header><!-- .page-header -->
-
+	<searchform class="search-form-container">
+		<?php get_search_form(); ?>
+	</searchform>
 	<div class="page-content">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
@@ -37,13 +39,11 @@
 
 			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'wonkasoft-starter' ); ?></p>
 			<?php
-				get_search_form();
 
 		else : ?>
 
 			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'wonkasoft-starter' ); ?></p>
 			<?php
-				get_search_form();
 
 		endif; ?>
 	</div><!-- .page-content -->
