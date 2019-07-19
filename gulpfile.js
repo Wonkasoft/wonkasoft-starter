@@ -16,6 +16,7 @@ jsmin = require('gulp-js-minify'),
 themeName = json.read('./package.json').get('name'),
 siteName = json.read('./package.json').get('siteName'),
 themeDir = '../' + themeName,
+myproxy = "https://listers.dev/" + siteName,
 plumberErrorHandler = { errorHandler: notify.onError({
 
 	title: 'Gulp',
@@ -27,15 +28,20 @@ plumberErrorHandler = { errorHandler: notify.onError({
 })
 
 };
-sass.compiler = require('node-sass');
 
 // Static server
-gulp.task('browser-sync', function() {
-	browserSync.init({
-		proxy: 'https://localhost/' + siteName,
-		port: 4000
-	});
-});
+// gulp.task('browser-sync', function() {
+// 	browserSync.init({
+// 		https: true,
+// 		open: 'local',
+// 		host: 'listers.dev',
+// 		proxy: {
+// 			target: myproxy,
+// 			ws: true
+// 			},
+// 		port: 4000
+// 	});
+// });
 
 gulp.task('sass', function () {
 
@@ -53,9 +59,9 @@ gulp.task('sass', function () {
 
 	.pipe(sourcemaps.write('./maps'))
 
-	.pipe(gulp.dest('./'))
+	.pipe(gulp.dest('./'));
 
-	.pipe(browserSync.stream());
+	// .pipe(browserSync.stream());
 
 });
 
@@ -77,7 +83,7 @@ gulp.task('sass2', function () {
 
 	.pipe(gulp.dest('./'))
 
-	.pipe(browserSync.stream())
+	// .pipe(browserSync.stream())
 
 	.pipe(notify({
 		message: "✔︎ CSS task complete",
@@ -106,7 +112,7 @@ gulp.task('js', function () {
 
 	.pipe(gulp.dest('./assets/js'))
 
-	.pipe(browserSync.stream())
+	// .pipe(browserSync.stream())
 
 	.pipe(notify({ message: "✔︎ JS task complete"}));
 
@@ -127,9 +133,9 @@ gulp.task('imgPress', function() {
 
 	}))
 
-	.pipe(gulp.dest('./assets/img'))
+	.pipe(gulp.dest('./assets/img'));
 
-	.pipe(browserSync.stream());
+	// .pipe(browserSync.stream());
 
 });
 
@@ -137,12 +143,12 @@ gulp.task('watch', function() {
 
 	gulp.watch('./**/*.php').on('change', browserSync.reload);
 
-	gulp.watch('./sass/**/*.scss', gulp.series(gulp.parallel('sass', 'sass2'))).on('change', browserSync.reload);
+	gulp.watch('./sass/**/*.scss', gulp.series(gulp.parallel('sass', 'sass2')));//.on('change', browserSync.reload);
 
-	gulp.watch('./js/**/*.js', gulp.series(gulp.parallel('js'))).on('change', browserSync.reload);
+	gulp.watch('./js/**/*.js', gulp.series(gulp.parallel('js')));//.on('change', browserSync.reload);
 
-	gulp.watch('./images/*.{png,jpg,gif,jpeg,PNG,JPG,GIF,JPEG}', gulp.series(gulp.parallel('imgPress'))).on('change', browserSync.reload);
+	gulp.watch('./images/*.{png,jpg,gif,jpeg,PNG,JPG,GIF,JPEG}', gulp.series(gulp.parallel('imgPress')));//.on('change', browserSync.reload);
 
 });
 
-gulp.task('default', gulp.series(gulp.parallel('sass', 'sass2', 'js', 'imgPress', 'watch', 'browser-sync')));
+gulp.task('default', gulp.series(gulp.parallel('sass', 'sass2', 'js', 'imgPress', 'watch')));

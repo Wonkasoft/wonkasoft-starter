@@ -24,96 +24,80 @@
 #page {
 	position: relative;
 	min-height: 100%;
-	display: grid;
-	grid-template-columns: repeat( 4, 1fr );
-	grid-template-rows: 140px auto 80px;
-	grid-template-areas: 
-	"header header header header"
-	"main main main main"
-	"footer footer footer footer";
-	grid-gap: 15px 15px;
 }
 
 header#masthead {
-	grid-area: header;
+	width: 100%;
 	display: grid;
-	grid-template-columns: repeat( 4, 1fr );
-	grid-template-rows: 20px 50px 70px;
-	grid-template-areas: 
-	"header-number header-number header-number header-number"
-	"header-menu header-menu header-menu header-menu"
-	"header-branding header-branding header-branding header-branding";
-	grid-gap: 8px 15px;
-}
-
-div.contact-number {
-	grid-area: header-number;
-	display: grid;
-	align-items: center;
-	text-align: center;
-	height: 25px;
-
-	span.contact-number-text {
-		display: inline-block;
-	}
-}
-
-div.site-branding {
-	grid-area: header-branding;
-
-	div.site-title {
-		grid-area: header-title;
-		text-transform: uppercase;
+	
+	div.contact-number {
+		align-items: center;
 		text-align: center;
+		height: 25px;
 
-		a {
-			position: relative;
+		span.contact-number-text {
 			display: inline-block;
-			color: #333333;
+		}
+	}
+	
+	div.site-branding {
+		align-items: center;
+		text-align: center;
+		grid-area: third-line / last line;
 
-			&:after {
-				content: "";
-				position: absolute;
+		div.site-title {
+			text-transform: uppercase;
+			text-align: center;
+
+			a {
+				position: relative;
 				display: inline-block;
-				bottom: 5px;
-				border-radius: 25%;
-				left: 0;
-				width: 0;
-				height: 3px;
-				background: #999;
-				@include prefix( transition, all .3s ease-in-out, o moz webkit );
-				@include prefix( box-shadow, 0 1px 2px 0 rgba( #000, 0 ), o moz webkit );
-			}
-
-			&:hover {
-				text-decoration: none;
+				color: #333333;
 
 				&:after {
-					width: 100%;
-					@include prefix( box-shadow, 0 1px 2px 0 rgba( #000, .2 ), o moz webkit );
+					content: "";
+					position: absolute;
+					display: inline-block;
+					bottom: 5px;
+					border-radius: 25%;
+					left: 0;
+					width: 0;
+					height: 3px;
+					background: #999;
+					@include prefix( transition, all .3s ease-in-out, o moz webkit );
+					@include prefix( box-shadow, 0 1px 2px 0 rgba( #000, 0 ), o moz webkit );
 				}
-			}
 
-			h1 {
-				margin: 0;
+				&:hover {
+					text-decoration: none;
 
-				@include media-breakpoint( md ) {
-					@include font-size( 3 );
+					&:after {
+						width: 100%;
+						@include prefix( box-shadow, 0 1px 2px 0 rgba( #000, .2 ), o moz webkit );
+					}
+				}
+
+				h1 {
+					margin: 0;
+
+					@include media-breakpoint( md ) {
+						@include font-size( 3 );
+					}
 				}
 			}
 		}
-	}
 
-	div.site-description {
-		grid-area: header-description;
-		text-transform: uppercase;
-		text-align: center;
-		@include font-size( .9 );
+		div.site-description {
+			text-transform: uppercase;
+			text-align: center;
+			@include font-size( .9 );
+		}
 	}
 }
 
+
 main#main {
-	grid-area: main;
+
 }
 
 .sticky {
@@ -121,20 +105,6 @@ main#main {
 }
 
 article.hentry {
-	display: grid;
-	grid-template-columns: repeat( 4, 1fr );
-	grid-template-rows: auto auto 35px auto;
-	grid-template-areas: 
-	"page-image page-image page-image page-image"
-	"main-content main-content main-content main-content"
-	"edit-link edit-link edit-link edit-link";
-
-	@include media-breakpoint( md ) {
-		grid-template-areas: 
-		"page-image page-image page-image page-image"
-		"main-content main-content main-content main-content"
-		"edit-link edit-link edit-link edit-link";
-	}
 }
 
 .updated:not(.published) {
@@ -146,8 +116,7 @@ img.wonkasoft-logo-cover {
 	margin: auto;
 }
 
-div.post-thumbnail {
-	grid-area: page-image;
+div.post-thumbnail, div.front-page-default-thumbnail {
 	max-height: 550px;
 	overflow: hidden;
 	display: grid;
@@ -163,7 +132,7 @@ div.post-thumbnail {
 
 footer.entry-footer {
 	grid-area: edit-link;
-  align-items: center;
+  	align-items: center;
 	padding: 15px;
 
 	span {
@@ -174,13 +143,8 @@ footer.entry-footer {
 .page-content,
 .entry-content,
 .entry-summary {
-	grid-area: main-content;
 	padding: 0 15px;
 	display: grid;
-	grid-template-columns: repeat( 1, 1fr );
-	grid-auto-rows: minmax(370px,400px);
-	grid-auto-flow: row;
-	grid-gap: 15px 15px;
 
 	&:before {
 		display: none;
@@ -246,10 +210,16 @@ footer.entry-footer {
 	}
 }
 
+section.front-page-section {
+	width: 100%;
+	grid-column: first / end;
+}
+
 footer#colophon {
-	position: relative;
-	grid-area: footer;
+	padding: 15px;
+	height: 60px;
 	display: grid;
+	position: relative;
 	align-items: center;
 	text-align: center;
 	background: #fde;
@@ -257,7 +227,7 @@ footer#colophon {
 
 	.site-info {
 		display: grid;
-		grid-template-columns: auto;
+		grid-auto-columns: auto;
 		grid-auto-flow: row;
 
 		.copyright-text {

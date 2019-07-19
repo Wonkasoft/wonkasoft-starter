@@ -9,6 +9,7 @@
  * @package Wonkasoft_Starter
  */
 
+$enable_top_msg = ( ! empty ( get_theme_mod( 'enable_topbar' ) ) ) ? true: false;
 $top_message = ( ! empty ( get_theme_mod( 'topbar_message', false ) ) ) ? get_theme_mod( 'topbar_message', false ): '';
 
 ?>
@@ -27,9 +28,11 @@ $top_message = ( ! empty ( get_theme_mod( 'topbar_message', false ) ) ) ? get_th
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wonkasoft-starter' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="contact-number">
-			<span class="contact-number-text"><?php echo $top_message; ?></span>
-		</div><!-- .contact-number -->
+		<?php if ( ! empty ( $enable_top_msg ) ) : ?>
+			<div class="contact-number">
+				<span class="contact-number-text"><?php echo $top_message; ?></span>
+			</div><!-- .contact-number -->
+		<?php endif; ?>
 
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">

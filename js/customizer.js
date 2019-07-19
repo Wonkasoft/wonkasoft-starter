@@ -39,4 +39,15 @@
 			}
 		} );
 	} );
+
+	// setting up sections for home page
+	// wp.customize( 'section_qty', function( value ) {
+	// 	value.bind( function( to ) {
+	// 		if ( to < 1 ) 
+	// 		{
+	// 			$( '#_customize-input-section_qty_control' ).val( '1' );
+	// 			console.log( $( '#_customize-input-section_qty_control' ) );
+	// 		}
+	// 	} );
+	// } );
 } )( jQuery );

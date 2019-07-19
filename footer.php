@@ -9,7 +9,7 @@
  * @package Wonkasoft_Starter
  */
 
-$copyright = ( ! empty ( get_theme_mod( 'copyright_bar_message', false ) ) ) ? get_theme_mod( 'copyright_bar_message', false ): date("Y") . ' &copy; all rights reserved.';
+$copyright = ( ! empty ( get_theme_mod( 'copyright_bar_message', false ) ) ) ? get_theme_mod( 'copyright_bar_message', false ): 'all rights reserved.';
 ?>
 
 	<footer id="colophon" class="site-footer">

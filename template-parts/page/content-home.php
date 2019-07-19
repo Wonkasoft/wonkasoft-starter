@@ -12,42 +12,50 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php wonkasoft_starter_post_thumbnail(); ?>
+	<?php 
+	if ( has_post_thumbnail() ) : 
+		wonkasoft_starter_post_thumbnail();
+	else : ?>
+		<div class="front-page-default-thumbnail">
+			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/business-3370832.jpg'; ?>" class="default-featured-image" />
+		</div>
+	<?php endif; ?>
 
 	<div class="entry-content">
-
-		<?php
-		$query = new WP_Query( array( 'post_type' => 'post', ) );
-		if ( $query->have_posts() ) : ?>
-
+		<div class="inner-loop">
 			<?php
+			$query = new WP_Query( array( 'post_type' => 'post', ) );
+			if ( $query->have_posts() ) : ?>
 
-			/* Start the Loop */
-			while ( $query->have_posts() ) : $query->the_post();
+				<?php
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+				/* Start the Loop */
+				while ( $query->have_posts() ) : $query->the_post();
 
-			endwhile;
-			wp_reset_postdata();
-			the_posts_navigation();
+					/*
+					 * Include the Post-Format-specific template for the content.
+					 * If you want to override this in a child theme, then include a file
+					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+					 */
+					get_template_part( 'template-parts/content', get_post_format() );
 
-		else :
+				endwhile;
+				wp_reset_postdata();
+				the_posts_navigation();
 
-			get_template_part( 'template-parts/content', 'none' );
+			else :
 
-		endif;
-			the_content();
+				get_template_part( 'template-parts/content', 'none' );
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wonkasoft-starter' ),
-				'after'  => '</div>',
-			) );
-		?>
+			endif;
+				the_content();
+
+				wp_link_pages( array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wonkasoft-starter' ),
+					'after'  => '</div>',
+				) );
+			?>
+		</div><!-- .inner-loop -->
 	</div><!-- .entry-content -->
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">

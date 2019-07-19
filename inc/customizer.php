@@ -51,7 +51,7 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	* @since  1.0.0
 	*/
 	$wp_customize->add_section(
-	  'topbar_messgae_section',
+	  'topbar_message_section',
 	  array(
 		'capability'     => 'edit_theme_options',
 		'theme_supports' => '',
@@ -81,7 +81,7 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	  'enable_topbar_control', 
 	  array(
 		'label'       => __( 'Topbar Message Option', 'Wonkasoft_Starter' ),
-		'section'     => 'topbar_messgae_section',
+		'section'     => 'topbar_message_section',
 		'settings'    => 'enable_topbar',
 		'type'        => 'checkbox',
 		'description' => 'Enable Topbar',
@@ -103,7 +103,7 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	  'topbar_color_control', 
 	  array(
 		'label'       => __( 'Topbar Color Option', 'Wonkasoft_Starter' ),
-		'section'     => 'topbar_messgae_section',
+		'section'     => 'topbar_message_section',
 		'settings'    => 'topbar_color',
 		'type'        => 'color',
 		'description' => 'Topbar color',
@@ -131,6 +131,89 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	) ) );
 
 	/**
+	* Setting Front page sections
+	*
+	* @since  1.0.0
+	*/
+	$wp_customize->add_section(
+	  'front_page_sections',
+	  array(
+		'capability'     => 'edit_theme_options',
+		'theme_supports' => '',
+		'priority'       => 100,
+		'title'          => __( 'Select front page sections', 'Wonkasoft_Starter' ),
+		'description'    => __( 'This Panel lets you setup sections on the home page', 'Wonkasoft_Starter' ),
+		'panel'          => 'wonkasoft_theme_options',
+		)
+	);
+
+	/**
+	* Setting the number of sections on home page
+	* @since  1.0.0
+	*/
+	$wp_customize->add_setting( 'section_qty' , array(
+	  'default'           => '1',
+	  'transport'         => 'refresh',
+	) );
+
+	// Topbar color Setting Control
+	$wp_customize->add_control( new WP_Customize_Control( 
+	  $wp_customize, 
+	  'section_qty_control', 
+	  array(
+		'label'       => __( 'Qty of sections', 'Wonkasoft_Starter' ),
+		'section'     => 'front_page_sections',
+		'settings'    => 'section_qty',
+		'type'        => 'number',
+		'description' => 'Set the amount of sections for the home page',
+	) ) );
+
+	$section_qty = ( ! empty ( get_theme_mod( 'section_qty' ) ) ) ? get_theme_mod( 'section_qty' ): 1;
+	/**
+	* Looping for amount of sections
+	* @since  1.0.0
+	*/
+	if ( $section_qty > 0 ) : 
+		
+		for ($i=1; $i <= $section_qty; $i++) { 
+			$wp_customize->add_setting( 'home_page_section_color_' . $i , array(
+			  'default'           	=> '#fff',
+			  'transport'         	=> 'refresh',
+			) );
+			
+			// home_page_section_ Setting Control
+			$wp_customize->add_control( new WP_Customize_Control( 
+			  $wp_customize, 
+			  'home_page_section_color_control' . $i, 
+			  array(
+				'label'       		=> __( 'Section Color ' . $i, 'Wonkasoft_Starter' ),
+				'section'     		=> 'front_page_sections',
+				'settings'    		=> 'home_page_section_color_' . $i,
+				'type'        		=> 'color',
+				'description' 		=> 'Select background color for this section',
+			) ) );
+
+			$wp_customize->add_setting( 'home_page_section_' . $i , array(
+			  'default'           	=> '0',
+			  'transport'         	=> 'refresh',
+			) );
+
+			// home_page_section_ Setting Control
+			$wp_customize->add_control( new WP_Customize_Control( 
+			  $wp_customize, 
+			  'home_page_section_control' . $i, 
+			  array(
+				'label'       		=> __( 'Section ' . $i, 'Wonkasoft_Starter' ),
+				'section'     		=> 'front_page_sections',
+				'settings'    		=> 'home_page_section_' . $i,
+				'type'        		=> 'dropdown-pages',
+				'allow_addition'	=> true,
+				'description' 		=> 'Select page to parse page content in this section',
+			) ) );
+		}
+	endif;
+
+	/**
 	* Website Copyright Info Section
 	*
 	* @since  1.0.0
@@ -144,7 +227,7 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 		'title'          => __( 'Website Copyright Info', 'Wonkasoft_Starter' ),
 		'description'    => __( 'Copyright Info', 'Wonkasoft_Starter' ),
 		'panel'          => 'wonkasoft_theme_options',
-	)
+		)
 	);
 	
 	/**

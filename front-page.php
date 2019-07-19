@@ -32,8 +32,19 @@ get_header(); ?>
 					?>
 
 	</main><!-- .site-main-->
-
-
-<?php 
+	<?php
+	$get_qty_sections = ( ! empty ( get_theme_mod( 'section_qty' ) ) ) ? get_theme_mod( 'section_qty' ): 0;
+	if ( $get_qty_sections > 0 ) : 
+		for ($i=1; $i <= $get_qty_sections; $i++) : 
+			$page_id = ( ! empty ( get_theme_mod( 'home_page_section_' . $i ) ) ) ? get_theme_mod( 'home_page_section_' . $i ): null;
+			$this_post = get_post( $page_id );
+			$bg_color = ( ! empty ( get_theme_mod( 'home_page_section_color_' . $i ) ) ) ? 'style="background:' . get_theme_mod( 'home_page_section_color_' . $i ) . ';" ': '';
+			if ( ! ( $get_page_id ) ) : ?>
+				<section id="section-<?php echo $i; ?>" class="front-page-section <?php echo $this_post->post_name; ?>"<?php echo $bg_color; ?>>
+					<?php echo $this_post->post_content; ?>
+				</section>
+			<?php endif;
+		endfor;
+	endif;
 
 get_footer();
