@@ -22,7 +22,7 @@ hr {
 	background-color: $color__background-hr;
 	border: 0;
 	height: 3px;
-	margin: 0 15px;
+	margin: 0;
 	@include prefix( box-shadow, 0 1px 2px 0 inset rgba( #444, .6 ), o moz webkit );
 }
 

@@ -57,4 +57,5 @@
 			?>
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
+	<?php get_sidebar(); ?>
 </article><!-- #post-<?php the_ID(); ?> -->

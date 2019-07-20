@@ -1,0 +1,48 @@
+main.site-main-sidebar {
+	width: 100%;
+
+	article {
+		display: grid;
+		grid-template-columns: auto;
+		grid-auto-rows: auto;
+		grid-template-areas: 
+		"page-header"
+		"page-image"
+		"page-content"
+		"content-footer"
+		"sidebar";
+		
+		header.entry-header {
+			grid-area: page-header;
+
+			hr {
+				margin: 0 -15px;
+			}
+		}
+
+		div.post-thumbnail {
+			grid-area: page-image;
+		}
+
+		div.entry-content {
+			grid-area: page-content;
+		}
+
+		footer.entry-footer {
+			grid-area: content-footer;
+		}
+		
+		aside {
+			grid-area: sidebar;
+		}
+
+		@include media-breakpoint( md ) {
+			grid-template-columns: 75% auto;
+			grid-template-areas: 
+			"page-header page-header"
+			"page-image page-image"
+			"page-content sidebar"
+			"content-footer sidebar";
+		}
+	}
+}

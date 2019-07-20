@@ -8,11 +8,20 @@
 	height: 50px;
 	@include prefix( box-shadow, 0 1px 3px inset rgba( 0, 0, 0, 0.3 ), o moz webkit );
 
+	#top-main {
+		position: relative;
+		width: 0;
+		border-radius: 0;
+		z-index: 1000;
+		@include prefix( transition, $trans_25, o moz webkit );
+	}
+
 	&.toggled {
 
 		#top-main {
-			position: absolute;
-		    background: rgba(0,0,0,.6);
+			position: fixed;
+		    background: rgba(0,0,0,.97);
+			border-radius: 0 15px 15px 0;
 		    top: 80px;
 		    bottom: 0;
 		    width: 90%;
@@ -46,18 +55,24 @@
 		}
 		
 		&[aria-expanded="true"] {
+			top: 40px;
+			position: fixed;
+			z-index: 1005;
 		
 			.hang-a-bur-top {
 				top: 0.6rem;
+				background: #999;
 				@include prefix( transform, rotate(220deg), webkit moz o );
 			}
 		
 			.hang-a-bur-mid {
 				opacity: 0;
+				background: #999;
 			}
 		
 			.hang-a-bur-bottom {
 				bottom: 0.6rem;
+				background: #999;
 				@include prefix( transform, rotate(-220deg), webkit moz o );
 			}
 		}
@@ -72,10 +87,13 @@
 	}
 
 	ul {
-		display: none;
+		display: block;
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
+		height: 50px;
+		opacity: 0;
+		@include prefix( transition, all .25s ease-in-out, o moz webkit );
 
 		ul {
 			float: left;
@@ -117,8 +135,8 @@
 	}
 
 	li {
-		float: left;
 		position: relative;
+		align-self: center;
 
 		&:hover > a,
 		&.focus > a {
@@ -126,8 +144,9 @@
 	}
 
 	a {
-		color: #555;
+		color: #ffffff;
 		display: block;
+		@include font-size( 2 );
 		text-decoration: none;
 		text-transform: uppercase;
 		@include prefix( transition, all .3s ease-in-out, o moz webkit );
@@ -153,6 +172,21 @@
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
+	opacity: 1;
+}
+
+.main-navigation.toggled {
+
+	> div {
+		display: grid;
+		align-items: center;
+
+		ul {
+			align-self: stretch;
+			display: grid;
+			justify-items: center; 
+		}
+	}
 }
 
 @media screen and (min-width: 37.5em) {
