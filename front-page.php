@@ -37,9 +37,10 @@ get_header(); ?>
 	if ( $get_qty_sections > 0 ) : 
 		for ($i=1; $i <= $get_qty_sections; $i++) : 
 			$page_id = ( ! empty ( get_theme_mod( 'home_page_section_' . $i ) ) ) ? get_theme_mod( 'home_page_section_' . $i ): null;
+			if ( ! empty ( $page_id ) ) : 
 			$this_post = get_post( $page_id );
 			$bg_color = ( ! empty ( get_theme_mod( 'home_page_section_color_' . $i ) ) ) ? 'style="background:' . get_theme_mod( 'home_page_section_color_' . $i ) . ';" ': '';
-			if ( ! ( $get_page_id ) ) : ?>
+			?>
 				<section id="section-<?php echo $i; ?>" class="front-page-section <?php echo $this_post->post_name; ?>"<?php echo $bg_color; ?>>
 					<?php echo $this_post->post_content; ?>
 				</section>

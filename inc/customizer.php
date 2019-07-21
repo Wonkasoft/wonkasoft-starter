@@ -193,6 +193,23 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 				'description' 		=> 'Select background color for this section',
 			) ) );
 
+			$wp_customize->add_setting( 'home_page_section_bg_image_' . $i , array(
+			  'default'           	=> '',
+			  'transport'         	=> 'refresh',
+			) );
+			
+			// home_page_section_ Setting Control
+			$wp_customize->add_control( new WP_Customize_Media_Control( 
+			  $wp_customize, 
+			  'home_page_section_bg_image_control' . $i, 
+			  array(
+				'label'       		=> __( 'Section Background Image ' . $i, 'Wonkasoft_Starter' ),
+				'section'     		=> 'front_page_sections',
+				'settings'    		=> 'home_page_section_bg_image_' . $i,
+				'type'        		=> 'image',
+				'description' 		=> 'Select background image for this section',
+			) ) );
+
 			$wp_customize->add_setting( 'home_page_section_' . $i , array(
 			  'default'           	=> '0',
 			  'transport'         	=> 'refresh',

@@ -9,18 +9,19 @@
 
 get_header(); ?>
 
-		<main id="main" class="site-main">
+		<main id="main" class="site-main-error-404">
 
 			<section class="error-404 not-found">
 				<header class="page-header">
 					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'wonkasoft-starter' ); ?></h1>
 				</header><!-- .page-header -->
-
+				<searchform class="search-form-container">
+					<?php get_search_form(); ?>
+				</searchform>
 				<div class="page-content">
 					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'wonkasoft-starter' ); ?></p>
 
 					<?php
-						get_search_form();
 
 						the_widget( 'WP_Widget_Recent_Posts' );
 					?>

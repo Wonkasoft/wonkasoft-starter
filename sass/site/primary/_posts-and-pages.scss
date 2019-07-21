@@ -24,6 +24,7 @@
 #page {
 	position: relative;
 	min-height: 100%;
+	display: grid;
 }
 
 header#masthead {
@@ -130,7 +131,7 @@ header#masthead {
 
 
 main#main {
-
+	padding: 0 15px;
 }
 
 .sticky {
@@ -212,6 +213,7 @@ footer#colophon {
 	display: grid;
 	position: relative;
 	align-items: center;
+	align-self: end;
 	text-align: center;
 	background: #fde;
 	@include prefix( box-shadow, 0 1px 4px 0 rgba( #000, .6 ), o moz webkit );

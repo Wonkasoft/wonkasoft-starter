@@ -1,0 +1,23 @@
+main.site-main-error-404 {
+	padding: 0 15px;
+
+	section.error-404 {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		grid-template-areas: 
+		"error-header error-search"
+		"error-content error-content";
+
+		header.page-header {
+			grid-area: error-header;
+		}
+
+		searchform {
+			grid-area: error-search;
+		}
+
+		div.page-content {
+			grid-area: error-content;
+		}
+	}
+}
