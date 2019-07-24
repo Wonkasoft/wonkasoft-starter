@@ -11,7 +11,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
+	<div class="img-cta-wrap">
 	<?php 
 	if ( has_post_thumbnail() ) : 
 		wonkasoft_starter_post_thumbnail();
@@ -20,11 +20,19 @@
 			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/business-3370832.jpg'; ?>" class="default-featured-image" />
 		</div>
 	<?php endif; ?>
-
+	<?php
+	if ( ! empty ( get_theme_mod( 'cta_message' ) ) ) : ?>
+		<div class="cta-message">
+			<header class="header-cta-message"><h4><?php echo esc_html__( get_theme_mod( 'cta_message' ) );?></h4>
+			</header>
+			<a href="<?php echo esc_attr__( get_theme_mod( 'home_page_cta_link' ) ); ?>" class="cta-action-btn btn btn-primary">Learn More</a>
+		</div>
+	<?php endif; ?>
+	</div>
 	<div class="entry-content">
 		<div class="inner-loop">
 			<?php
-			$query = new WP_Query( array( 'post_type' => 'post', ) );
+			$query = new WP_Query( array( 'post_type' => array( 'post' ) ) );
 			if ( $query->have_posts() ) : ?>
 
 				<?php

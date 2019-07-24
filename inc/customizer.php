@@ -131,6 +131,63 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	) ) );
 
 	/**
+	* Setting Front page CTA
+	*
+	* @since  1.0.0
+	*/
+	$wp_customize->add_section(
+	  'front_page_cta',
+	  array(
+		'capability'     => 'edit_theme_options',
+		'theme_supports' => '',
+		'priority'       => 20,
+		'title'          => __( 'Set front page call to action', 'Wonkasoft_Starter' ),
+		'description'    => __( 'This Panel lets you setup a cta on the home page', 'Wonkasoft_Starter' ),
+		'panel'          => 'wonkasoft_theme_options',
+		)
+	);
+
+	/**
+	* Call to action message
+	* @since  1.0.0
+	*/
+	$wp_customize->add_setting( 'cta_message' , array(
+	  'default'           => '',
+	  'transport'         => 'refresh',
+	) );
+
+	// Topbar color Setting Control
+	$wp_customize->add_control( new WP_Customize_Control( 
+	  $wp_customize, 
+	  'cta_message_control', 
+	  array(
+		'label'       => __( 'Call To Action Message', 'Wonkasoft_Starter' ),
+		'section'     => 'front_page_cta',
+		'settings'    => 'cta_message',
+		'type'        => 'text',
+		'description' => 'Call to action message on front page',
+	) ) );
+
+	// Call to action link setting
+	$wp_customize->add_setting( 'home_page_cta_link' , array(
+	  'default'           	=> '0',
+	  'transport'         	=> 'refresh',
+	) );
+
+	// home_page_cta_link_control Setting Control
+	$wp_customize->add_control( new WP_Customize_Control( 
+	  $wp_customize, 
+	  'home_page_cta_link_control', 
+	  array(
+		'label'       		=> __( 'Page select for cta link', 'Wonkasoft_Starter' ),
+		'section'     		=> 'front_page_cta',
+		'settings'    		=> 'home_page_cta_link',
+		'type'        		=> 'dropdown-pages',
+		'allow_addition'	=> true,
+		'description' 		=> 'Select page to parse page content in this section',
+	) ) );
+
+	/**
 	* Setting Front page sections
 	*
 	* @since  1.0.0
@@ -140,7 +197,7 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	  array(
 		'capability'     => 'edit_theme_options',
 		'theme_supports' => '',
-		'priority'       => 100,
+		'priority'       => 30,
 		'title'          => __( 'Select front page sections', 'Wonkasoft_Starter' ),
 		'description'    => __( 'This Panel lets you setup sections on the home page', 'Wonkasoft_Starter' ),
 		'panel'          => 'wonkasoft_theme_options',

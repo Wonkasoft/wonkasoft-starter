@@ -131,7 +131,10 @@ header#masthead {
 
 
 main#main {
-	padding: 0 15px;
+
+	section.not-found {
+		padding: 0 15px;
+	}
 }
 
 .sticky {
@@ -195,7 +198,7 @@ footer.entry-footer {
 .page-content,
 .entry-content,
 .entry-summary {
-	padding: 0 15px;
+	padding: 15px;
 
 	searchform.search-form-container {
 	    display: inline-block;

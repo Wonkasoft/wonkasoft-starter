@@ -1,3 +1,31 @@
+.img-cta-wrap {
+	position: relative;
+	display: grid;
+
+	.cta-message {
+		position: absolute;
+		justify-self: start;
+		text-align: center;
+		padding: 8px 15px;
+		margin-left: 5%;
+		bottom: 20%;
+		border-radius: 4px;
+		background: rgba( #000, .8 );
+		@include prefix( box-shadow, 0 1px 6px 0 rgba( #000, .6 ), o moz webkit );
+
+		header.header-cta-message {
+			padding: 8px;
+			color: #fafafa;
+		}
+
+		a {
+			text-transform: uppercase;
+			margin-bottom: 15px;
+			@include prefix( box-shadow, 0 1px 6px 0 rgba( #000, .6 ), o moz webkit );
+		}
+	}
+}
+
 div.inner-loop {
 
 	> section {
