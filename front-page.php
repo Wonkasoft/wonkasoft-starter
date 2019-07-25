@@ -42,7 +42,9 @@ get_header(); ?>
 			$bg_color = ( ! empty ( get_theme_mod( 'home_page_section_color_' . $i ) ) ) ? 'style="background:' . get_theme_mod( 'home_page_section_color_' . $i ) . ';" ': '';
 			?>
 				<section id="section-<?php echo $i; ?>" class="front-page-section <?php echo $this_post->post_name; ?>"<?php echo $bg_color; ?>>
-					<?php echo $this_post->post_content; ?>
+					<?php
+						do_blocks( $this_post->post_content );
+					?>
 				</section>
 			<?php endif;
 		endfor;
