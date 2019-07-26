@@ -17,7 +17,8 @@
 
 	<?php
 	if ( has_post_thumbnail() ) :
-		wonkasoft_starter_post_thumbnail(); ?>
+		wonkasoft_starter_post_thumbnail();
+		?>
 	<?php else : ?>
 		<div class="post-thumbnail">
 			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/wonkasoft-logo.png'; ?>" class="img-responsive wonkasoft-logo-cover" />
@@ -28,11 +29,13 @@
 		<?php
 			the_content();
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wonkasoft-starter' ),
-				'after'  => '</div>',
-			) );
-		?>
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wonkasoft-starter' ),
+					'after'  => '</div>',
+				)
+			);
+			?>
 	</div><!-- .entry-content -->
 
 	<?php if ( get_edit_post_link() ) : ?>

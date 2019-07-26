@@ -18,20 +18,23 @@
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
-		if ( 'post' === get_post_type() ) : ?>
+		if ( 'post' === get_post_type() ) :
+			?>
 		<div class="entry-meta">
 			<?php
 				wonkasoft_starter_posted_on();
 				wonkasoft_starter_posted_by();
 			?>
 		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
+			<?php
+		endif;
+		?>
 	</header><!-- .entry-header -->
 
 	<?php
 	if ( has_post_thumbnail() ) :
-		wonkasoft_starter_post_thumbnail(); ?>
+		wonkasoft_starter_post_thumbnail();
+		?>
 	<?php else : ?>
 		<div class="post-thumbnail">
 			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/wonkasoft-logo.png'; ?>" class="img-responsive wonkasoft-logo-cover" />
@@ -40,24 +43,28 @@
 
 	<div class="entry-content">
 		<?php
-			the_content( sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'wonkasoft-starter' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			) );
+			the_content(
+				sprintf(
+					wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers */
+						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'wonkasoft-starter' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					get_the_title()
+				)
+			);
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wonkasoft-starter' ),
-				'after'  => '</div>',
-			) );
-		?>
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wonkasoft-starter' ),
+					'after'  => '</div>',
+				)
+			);
+			?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
