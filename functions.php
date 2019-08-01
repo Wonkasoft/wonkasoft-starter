@@ -43,27 +43,38 @@ if ( ! function_exists( 'wonkasoft_starter_setup' ) ) :
 		add_theme_support( 'post-thumbnails' );
 
 		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'wonkasoft-starter' ),
-		) );
+		register_nav_menus(
+			array(
+				'menu-1' => esc_html__( 'Primary', 'wonkasoft-starter' ),
+			)
+		);
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
 		 */
-		add_theme_support( 'html5', array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-		) );
+		add_theme_support(
+			'html5',
+			array(
+				'search-form',
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'caption',
+			)
+		);
 
 		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'wonkasoft_starter_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
+		add_theme_support(
+			'custom-background',
+			apply_filters(
+				'wonkasoft_starter_custom_background_args',
+				array(
+					'default-color' => 'ffffff',
+					'default-image' => '',
+				)
+			)
+		);
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
@@ -73,12 +84,15 @@ if ( ! function_exists( 'wonkasoft_starter_setup' ) ) :
 		 *
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
-		add_theme_support( 'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
-		) );
+		add_theme_support(
+			'custom-logo',
+			array(
+				'height'      => 250,
+				'width'       => 250,
+				'flex-width'  => true,
+				'flex-height' => true,
+			)
+		);
 	}
 endif;
 add_action( 'after_setup_theme', 'wonkasoft_starter_setup' );
@@ -101,15 +115,17 @@ add_action( 'after_setup_theme', 'wonkasoft_starter_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function wonkasoft_starter_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'wonkasoft-starter' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'wonkasoft-starter' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Sidebar', 'wonkasoft-starter' ),
+			'id'            => 'sidebar-1',
+			'description'   => esc_html__( 'Add widgets here.', 'wonkasoft-starter' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 }
 add_action( 'widgets_init', 'wonkasoft_starter_widgets_init' );
 
@@ -120,17 +136,17 @@ function wonkasoft_starter_scripts() {
 	/**
 	 * List of style enqueues
 	 */
-	wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', array(), false, 'all' );
+	wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', array(), '4.0.0', 'all' );
 
-	wp_enqueue_style( 'fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
-	
-	wp_enqueue_style( 'wonkasoft-starter-style', get_stylesheet_uri(), array(), time() );
+	wp_enqueue_style( 'fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), '4.7.0', 'all' );
+
+	wp_enqueue_style( 'wonkasoft-starter-style', get_stylesheet_uri(), array(), time(), 'all' );
 
 	/**
 	 * List of scripts enqueues
 	 */
 	wp_enqueue_script( 'boostrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', array(), 'all', true );
-	
+
 	wp_enqueue_script( 'wonkasoft-starter-navigation', get_template_directory_uri() . '/js/navigation.js', array(), time(), true );
 
 	wp_enqueue_script( 'wonkasoft-starter-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), time(), true );
@@ -162,6 +178,11 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Section Mods class.
+ */
+require get_template_directory() . '/inc/class-wonkasoft-starter-section-mods.php';
 
 /**
  * Load Jetpack compatibility file.

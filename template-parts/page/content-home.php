@@ -5,27 +5,29 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Wonkasoft_Starter
- * @since 1.0.0 
+ * @since 1.0.0
  */
 
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="img-cta-wrap">
-	<?php 
-	if ( has_post_thumbnail() ) : 
+	<?php
+	if ( has_post_thumbnail() ) :
 		wonkasoft_starter_post_thumbnail();
-	else : ?>
+	else :
+		?>
 		<div class="front-page-default-thumbnail">
 			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/business-3370832.jpg'; ?>" class="default-featured-image" />
 		</div>
 	<?php endif; ?>
 	<?php
-	if ( ! empty ( get_theme_mod( 'cta_message' ) ) ) : ?>
+	if ( ! empty( get_theme_mod( 'cta_message' ) ) ) :
+		?>
 		<div class="cta-message">
-			<header class="header-cta-message"><h4><?php echo esc_html__( get_theme_mod( 'cta_message' ) );?></h4>
+			<header class="header-cta-message"><h4><?php echo esc_html__( get_theme_mod( 'cta_message' ) ); ?></h4>
 			</header>
-			<a href="<?php echo esc_attr__( get_theme_mod( 'home_page_cta_link' ) ); ?>" class="cta-action-btn btn btn-primary">Learn More</a>
+			<a href="<?php echo esc_attr__( get_theme_mod( 'home_page_cta_link' ) ); ?>" class="wonka-btn btn btn-primary">Learn More</a>
 		</div>
 	<?php endif; ?>
 	</div>
@@ -33,12 +35,14 @@
 		<div class="inner-loop">
 			<?php
 			$query = new WP_Query( array( 'post_type' => array( 'post' ) ) );
-			if ( $query->have_posts() ) : ?>
+			if ( $query->have_posts() ) :
+				?>
 
 				<?php
 
 				/* Start the Loop */
-				while ( $query->have_posts() ) : $query->the_post();
+				while ( $query->have_posts() ) :
+					$query->the_post();
 
 					/*
 					 * Include the Post-Format-specific template for the content.
@@ -51,18 +55,20 @@
 				wp_reset_postdata();
 				the_posts_navigation();
 
-			else :
+				else :
 
-				get_template_part( 'template-parts/content', 'none' );
+					get_template_part( 'template-parts/content', 'none' );
 
 			endif;
 				the_content();
 
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wonkasoft-starter' ),
-					'after'  => '</div>',
-				) );
-			?>
+				wp_link_pages(
+					array(
+						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wonkasoft-starter' ),
+						'after'  => '</div>',
+					)
+				);
+				?>
 		</div><!-- .inner-loop -->
 	</div><!-- .entry-content -->
 	<?php if ( get_edit_post_link() ) : ?>

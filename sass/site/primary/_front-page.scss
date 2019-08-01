@@ -98,4 +98,10 @@ div.inner-loop {
 
 section.front-page-section {
 	width: 100%;
+	background-position: center center;
+	background-size: cover;
+
+	div.section-content {
+		padding: 15px;
+	}
 }

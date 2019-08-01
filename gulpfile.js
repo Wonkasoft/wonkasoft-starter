@@ -29,19 +29,19 @@ plumberErrorHandler = { errorHandler: notify.onError({
 
 };
 
-// Static server
-// gulp.task('browser-sync', function() {
-// 	browserSync.init({
-// 		https: true,
-// 		open: 'local',
-// 		host: 'listers.dev',
-// 		proxy: {
-// 			target: myproxy,
-// 			ws: true
-// 			},
-// 		port: 4000
-// 	});
-// });
+gulp.task('browser-sync', function() {
+	browserSync.init({
+		https: true,
+		logPrefix: themeName,
+		proxy: {
+			target: myproxy
+		},
+		host: 'listers.dev',
+		open: 'Local',
+		ghost: false,
+		port: 4000
+	});
+});
 
 gulp.task('sass', function () {
 
@@ -59,9 +59,14 @@ gulp.task('sass', function () {
 
 	.pipe(sourcemaps.write('./maps'))
 
-	.pipe(gulp.dest('./'));
+	.pipe(gulp.dest('./'))
 
-	// .pipe(browserSync.stream());
+	.pipe(browserSync.stream())
+
+	.pipe(notify({
+		message: "✔︎ Style CSS task complete",
+		onLast: true
+	}));
 
 });
 
@@ -83,10 +88,10 @@ gulp.task('sass2', function () {
 
 	.pipe(gulp.dest('./'))
 
-	// .pipe(browserSync.stream())
+	.pipe(browserSync.stream())
 
 	.pipe(notify({
-		message: "✔︎ CSS task complete",
+		message: "✔︎ Woocommerce CSS task complete",
 		onLast: true
 	}));
 
@@ -112,30 +117,10 @@ gulp.task('js', function () {
 
 	.pipe(gulp.dest('./assets/js'))
 
-	// .pipe(browserSync.stream())
+	.pipe(browserSync.stream())
 
-	.pipe(notify({ message: "✔︎ JS task complete"}));
+	.pipe(notify({ message: "✔︎ Wonkamizer JS task complete"}));
 
-
-});
-
-gulp.task('imgPress', function() {
-
-	return gulp.src('./images/*.{png,jpg,jpeg,gif,PNG,JPG,GIF,JPEG}')
-
-	.pipe(plumber(plumberErrorHandler))
-
-	.pipe(imagemin({
-
-		optimizationLevel: 7,
-
-		progressive: true
-
-	}))
-
-	.pipe(gulp.dest('./assets/img'));
-
-	// .pipe(browserSync.stream());
 
 });
 
@@ -143,12 +128,10 @@ gulp.task('watch', function() {
 
 	gulp.watch('./**/*.php').on('change', browserSync.reload);
 
-	gulp.watch('./sass/**/*.scss', gulp.series(gulp.parallel('sass', 'sass2')));//.on('change', browserSync.reload);
+	gulp.watch('./sass/**/*.scss', gulp.series(gulp.parallel('sass', 'sass2'))).on('change', browserSync.reload);
 
-	gulp.watch('./js/**/*.js', gulp.series(gulp.parallel('js')));//.on('change', browserSync.reload);
-
-	gulp.watch('./images/*.{png,jpg,gif,jpeg,PNG,JPG,GIF,JPEG}', gulp.series(gulp.parallel('imgPress')));//.on('change', browserSync.reload);
+	gulp.watch('./js/**/*.js', gulp.series(gulp.parallel('js'))).on('change', browserSync.reload);
 
 });
 
-gulp.task('default', gulp.series(gulp.parallel('sass', 'sass2', 'js', 'imgPress', 'watch')));
+gulp.task('default', gulp.series(gulp.parallel('sass', 'sass2', 'js', 'browser-sync', 'watch')));
