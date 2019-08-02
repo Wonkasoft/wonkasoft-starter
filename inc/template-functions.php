@@ -43,7 +43,7 @@ function add_bootstrap_container_class( $form, $ajax, $field_values ) {
 	$field_validators_class = '';
 
 	if ( in_array( $form['title'], $inline_forms ) ) :
-		$form['cssClass'] .= ' form-inline wonka-newsletter-form';
+		$form['cssClass'] .= 'inline-form wonka-newsletter-form';
 		foreach ( $form['fields'] as $field ) :
 			if ( strpos( $field['cssClass'], 'gform_validation_container' ) === false ) :
 				$field['cssClass'] = 'form-group wonka-form-group';
@@ -83,9 +83,10 @@ add_filter( 'gform_submit_button', 'wonka_add_classes_to_button', 10, 2 );
  * This is to sanitize the content
  *
  * @param  string $content contains the content of the post.
+ * @param  string $post_id contains the content of the post.
  * @return string          returns the content of the post.
  */
-function wonka_sanitize_post( $content ) {
+function wonka_sanitize_post( $content, $post_id ) {
 
-	return $content;
+	echo $content;
 }

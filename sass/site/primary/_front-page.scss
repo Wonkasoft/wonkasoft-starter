@@ -100,8 +100,28 @@ section.front-page-section {
 	width: 100%;
 	background-position: center center;
 	background-size: cover;
+	padding: 15px;
+	color: #ffffff;
+
+	form.wonka-newsletter-form {
+		margin: auto;
+		display: grid;
+		width: 500px;
+		max-width: 100%;
+		background: rgba( #000, .4);
+		padding: 8px;
+
+		> div {
+			margin: 0;
+			padding: 8px;
+			display: grid;
+			align-items: center;
+		}
+	}
+
 
 	div.section-content {
 		padding: 15px;
+		margin: auto;
 	}
 }

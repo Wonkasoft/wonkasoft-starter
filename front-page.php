@@ -48,10 +48,9 @@ if ( 0 < $section_mods->sections_qty ) :
 		?>
 <section id="section-<?php echo esc_attr( $i ); ?>" class="front-page-section <?php echo esc_attr( $this_post->post_name ); ?>" <?php echo esc_attr( $set_bg ); ?>>
 
-		<?php echo '<div class="section-content">' . sanitize_post( $content, 'display' ) . '</div>'; ?>
+		<?php wonka_sanitize_post( $content, $page_id ); ?>
 </section>
 		<?php
 	endfor;
 endif;
-
-get_footer();
+	get_footer();

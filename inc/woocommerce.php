@@ -224,7 +224,7 @@ if ( ! function_exists( 'wonkasoft_starter_woocommerce_cart_link' ) ) {
 		?>
 			<a class="cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'wonkasoft-starter' ); ?>">
 				<?php /* translators: number of items in the mini cart. */ ?>
-				<span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span> <span class="count"><?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'wonkasoft-starter' ), WC()->cart->get_cart_contents_count() ) );?></span>
+				<span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span> <span class="count"><?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'wonkasoft-starter' ), WC()->cart->get_cart_contents_count() ) ); ?></span>
 			</a>
 		<?php
 	}

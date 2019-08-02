@@ -181,6 +181,46 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 		)
 	);
 
+	// Topbar color Setting Control.
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'cta_message_control',
+			array(
+				'label'       => __( 'Call To Action Message', 'Wonkasoft_Starter' ),
+				'section'     => 'front_page_cta',
+				'settings'    => 'cta_message',
+				'type'        => 'text',
+				'description' => 'Call to action message on front page',
+			)
+		)
+	);
+
+	// Call to action link setting.
+	$wp_customize->add_setting(
+		'home_page_cta_link',
+		array(
+			'default'             => '0',
+			'transport'           => 'refresh',
+		)
+	);
+
+	// home_page_cta_link_control Setting Control.
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'home_page_cta_link_control',
+			array(
+				'label'             => __( 'Page select for cta link', 'Wonkasoft_Starter' ),
+				'section'           => 'front_page_cta',
+				'settings'          => 'home_page_cta_link',
+				'type'              => 'dropdown-pages',
+				'allow_addition'    => true,
+				'description'       => 'Select page to parse page content in this section',
+			)
+		)
+	);
+
 	// CTA message Setting Control.
 	$wp_customize->add_control(
 		new WP_Customize_Control(
@@ -266,13 +306,12 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 		)
 	);
 
-	$section_qty = ( ! empty( get_theme_mod( 'section_qty' ) ) ) ? get_theme_mod( 'section_qty' ) : 1;
-
 	 /**
 	  * Looping for amount of sections
 	  *
 	  * @since  1.0.0
 	  */
+	$section_qty = ( ! empty( get_theme_mod( 'section_qty' ) ) ) ? get_theme_mod( 'section_qty' ) : 1;
 	if ( $section_qty > 0 ) :
 
 		for ( $i = 1; $i <= $section_qty; $i++ ) {
