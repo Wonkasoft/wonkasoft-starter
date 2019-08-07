@@ -172,7 +172,7 @@ div.post-thumbnail, div.front-page-default-thumbnail {
 
 	img {
 		width: 100%;
-		object-fit: contain;
+		object-fit: cover;
 	}
 
 	@include media-breakpoint( md ) {
