@@ -18,5 +18,15 @@ form.wonka-contact-form {
 				line-height: 1;
 			}
 		}
+
+		li.contact-name {
+
+
+			> div {
+				display: grid;
+				grid-gap: 15px;
+				width: 100%;
+			}
+		}
 	}
 }
