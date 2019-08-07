@@ -141,6 +141,7 @@ section.front-page-section {
 						grid-auto-columns: auto;
 						grid-auto-flow: row;
 						grid-gap: 15px;
+						width: 100%;
 					}
 
 					@include media-breakpoint( md ) {
