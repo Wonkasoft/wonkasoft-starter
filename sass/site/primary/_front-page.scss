@@ -106,16 +106,47 @@ section.front-page-section {
 	form.wonka-newsletter-form {
 		margin: auto;
 		display: grid;
+		align-items: center;
 		width: 500px;
 		max-width: 100%;
 		background: rgba( #000, .4);
 		padding: 8px;
 
+
 		> div {
 			margin: 0;
-			padding: 8px;
 			display: grid;
 			align-items: center;
+
+			span {
+				display: inline-block;
+				padding: 0;
+			}
+			
+			ul.gform_fields {
+
+				li.wonka-form-group {
+					padding: 0;
+
+
+					input:not([type=radio]) {
+						@include prefix( box-shadow, 0 1px 6px 0 rgba( #000, 0.3 ), o moz webkit );
+					}
+				}
+			}
+
+			input {
+				padding: 0;
+				margin: auto;
+			}
+
+			&.gform_footer {
+
+				[type=submit] {
+					padding: 8px;
+					margin: auto;
+				}
+			}
 		}
 	}
 
