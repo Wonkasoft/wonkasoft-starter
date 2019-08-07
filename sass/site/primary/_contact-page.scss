@@ -1,18 +1,21 @@
 form.wonka-contact-form {
 
-	li.wonka-form-group {
-		position: relative;
-		
-		.charleft.ginput_counter {
-			background: #fff;
-			text-align: right;
-			padding: 0 8px;
-			font-weight: 300;
-			position: absolute;
-			bottom: 2px;
-			right: 8px;
-			font-size: 1rem;
-			line-height: 1;
+	ul.gform_fields {
+
+		li.wonka-form-group {
+			position: relative;
+			
+			.charleft.ginput_counter {
+				background: #fff;
+				text-align: right;
+				padding: 0 8px;
+				font-weight: 300;
+				position: absolute;
+				bottom: 2px;
+				right: 8px;
+				font-size: 1rem;
+				line-height: 1;
+			}
 		}
 	}
 }
