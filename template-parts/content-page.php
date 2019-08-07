@@ -21,7 +21,7 @@
 		?>
 	<?php else : ?>
 		<div class="post-thumbnail">
-			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/wonkasoft-logo.png'; ?>" class="img-responsive wonkasoft-logo-cover" />
+			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/chalk_board_image.jpeg'; ?>" class="img-responsive wonkasoft-logo-cover" />
 		</div>
 	<?php endif; ?>
 
