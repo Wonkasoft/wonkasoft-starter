@@ -44,17 +44,22 @@ function add_bootstrap_container_class( $form, $ajax, $field_values ) {
 
 	if ( in_array( $form['title'], $inline_forms ) ) :
 		$form['cssClass'] .= 'inline-form wonka-newsletter-form';
-		foreach ( $form['fields'] as $field ) :
-			if ( strpos( $field['cssClass'], 'gform_validation_container' ) === false ) :
-				$field['cssClass'] = 'form-group wonka-form-group';
-				$field['size'] = 'form-control wonka-form-control';
-
-				if ( empty( $field['placeholder'] ) ) :
-					$field['placeholder'] = $field['label'];
-				endif;
-			endif;
-		endforeach;
 	endif;
+
+	if ( in_array( $form['title'], array( 'Contact' ) ) ) :
+		$form['cssClass'] .= 'inline-form wonka-contact-form';
+	endif;
+	
+	foreach ( $form['fields'] as $field ) :
+		if ( strpos( $field['cssClass'], 'gform_validation_container' ) === false ) :
+			$field['cssClass'] = 'form-group wonka-form-group';
+			$field['size'] = 'form-control wonka-form-control';
+
+			if ( empty( $field['placeholder'] ) ) :
+				$field['placeholder'] = $field['label'];
+			endif;
+		endif;
+	endforeach;
 
 	return $form;
 }
