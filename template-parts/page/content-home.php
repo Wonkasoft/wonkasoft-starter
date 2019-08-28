@@ -21,16 +21,19 @@
 			<div class="first-circle"></div>
 			<div class="second-outline-circle"></div>
 			<div class="third-circle"></div>
-			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/business-3370832.jpg'; ?>" class="default-featured-image" />
+			<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/business-3370832.jpg' ); ?>" class="default-featured-image" />
 		</div>
 	<?php endif; ?>
 	<?php
 	if ( ! empty( get_theme_mod( 'cta_message' ) ) ) :
+		$cta_title = ( ! empty( get_theme_mod( 'cta_message' ) ) ) ? wp_kses_post( get_theme_mod( 'cta_message' ) ) : '';
+		$cta_link = ( ! empty( get_theme_mod( 'cta_link' ) ) ) ? esc_url( get_theme_mod( 'cta_link' ) ) : '';
+		$cta_btn_text = ( ! empty( get_theme_mod( 'cta_btn_text' ) ) ) ? wp_kses_post( get_theme_mod( 'cta_btn_text' ) ) : '';
 		?>
 		<div class="cta-message">
 			<header class="header-cta-message"><h4><?php echo esc_html__( get_theme_mod( 'cta_message' ) ); ?></h4>
 			</header>
-			<a href="<?php echo esc_attr__( get_theme_mod( 'home_page_cta_link' ) ); ?>" class="wonka-btn btn btn-primary">Learn More</a>
+			<a href="<?php echo $cta_link; ?>" class="wonka-btn btn btn-primary"><?php echo $cta_btn_text; ?></a>
 		</div>
 	<?php endif; ?>
 	</div>

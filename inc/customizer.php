@@ -198,7 +198,7 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 
 	// Call to action link setting.
 	$wp_customize->add_setting(
-		'home_page_cta_link',
+		'cta_btn_text',
 		array(
 			'default'             => '0',
 			'transport'           => 'refresh',
@@ -209,36 +209,21 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Control(
 			$wp_customize,
-			'home_page_cta_link_control',
+			'cta_btn_text_control',
 			array(
-				'label'             => __( 'Page select for cta link', 'Wonkasoft_Starter' ),
+				'label'             => __( 'Set Button Text', 'Wonkasoft_Starter' ),
 				'section'           => 'front_page_cta',
-				'settings'          => 'home_page_cta_link',
-				'type'              => 'dropdown-pages',
+				'settings'          => 'cta_btn_text',
+				'type'              => 'text',
 				'allow_addition'    => true,
-				'description'       => 'Select page to parse page content in this section',
-			)
-		)
-	);
-
-	// CTA message Setting Control.
-	$wp_customize->add_control(
-		new WP_Customize_Control(
-			$wp_customize,
-			'cta_message_control',
-			array(
-				'label'       => __( 'Call To Action Message', 'Wonkasoft_Starter' ),
-				'section'     => 'front_page_cta',
-				'settings'    => 'cta_message',
-				'type'        => 'text',
-				'description' => 'Call to action message on front page',
+				'description'       => 'Set the text for the cta button.',
 			)
 		)
 	);
 
 	// Call to action link setting.
 	$wp_customize->add_setting(
-		'home_page_cta_link',
+		'cta_link',
 		array(
 			'default'               => '0',
 			'transport'             => 'refresh',
@@ -249,11 +234,11 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Control(
 			$wp_customize,
-			'home_page_cta_link_control',
+			'cta_link_control',
 			array(
 				'label'             => __( 'Page select for cta link', 'Wonkasoft_Starter' ),
 				'section'           => 'front_page_cta',
-				'settings'          => 'home_page_cta_link',
+				'settings'          => 'cta_link',
 				'type'              => 'dropdown-pages',
 				'allow_addition'    => true,
 				'description'       => 'Select page to parse page content in this section',
