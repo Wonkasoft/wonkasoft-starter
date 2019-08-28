@@ -14,10 +14,13 @@
 	<div class="img-cta-wrap">
 	<?php
 	if ( has_post_thumbnail() ) :
-		wonkasoft_starter_post_thumbnail();
+		wonkasoft_front_starter_post_thumbnail();
 	else :
 		?>
 		<div class="front-page-default-thumbnail">
+			<div class="first-circle"></div>
+			<div class="second-outline-circle"></div>
+			<div class="third-circle"></div>
 			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/business-3370832.jpg'; ?>" class="default-featured-image" />
 		</div>
 	<?php endif; ?>

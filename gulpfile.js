@@ -99,7 +99,9 @@ gulp.task('sass2', function () {
 
 gulp.task('js', function () {
 
-	return gulp.src('./js/wonkamizer-js.js')
+	return gulp.src('./js/*.js')
+
+	.pipe(concat(themeName + '.min.js'))
 
 	.pipe(plumber(plumberErrorHandler))
 
@@ -110,8 +112,6 @@ gulp.task('js', function () {
 	.pipe(jshint.reporter('fail'))
 
 	.pipe(jsmin())
-
-	.pipe(concat(themeName + '.min.js'))
 	
 	.pipe(sourcemaps.write('./maps'))
 

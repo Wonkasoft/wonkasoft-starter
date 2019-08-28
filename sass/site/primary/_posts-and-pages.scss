@@ -27,109 +27,6 @@
 	display: grid;
 }
 
-header#masthead {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 100%;
-	grid-template-rows: 25px 50px 110px;
-	grid-template-areas:
-	"top-msg"
-	"top-menu"
-	"branding";
-	
-	div.contact-number {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		height: 25px;
-		grid-area: top-msg;
-
-		span.contact-number-text {
-			display: inline-block;
-		}
-	}
-
-	nav.main-navigation {
-		grid-area: top-menu;
-	}
-	
-	div.site-branding {
-		display: grid;
-		align-items: center;
-		justify-content: center;
-		grid-template-columns: 100%;
-		grid-template-rows: 70px 25px;
-		grid-template-areas:
-		"title-area"
-		"tag-line-area";
-		text-align: center;
-		grid-area: branding;
-
-		div.site-title {
-			text-transform: uppercase;
-			text-align: center;
-			grid-area: title-area;
-
-			a {
-				position: relative;
-				display: inline-block;
-				color: #333333;
-
-				&:after {
-					content: "";
-					position: absolute;
-					display: inline-block;
-					bottom: 5px;
-					border-radius: 25%;
-					left: 0;
-					width: 0;
-					height: 4px;
-					background: rgba( #999, .3 );
-					@include prefix( transition, all .3s ease-in-out, o moz webkit );
-					@include prefix( box-shadow, 0 1px 2px 0 inset rgba( #000, 0 ), o moz webkit );
-				}
-
-				&:hover {
-					text-decoration: none;
-
-					&:after {
-						width: 100%;
-						@include prefix( box-shadow, 0 1px 3px 0 inset rgba( #000, .4 ), o moz webkit );
-					}
-				}
-
-				h1 {
-					margin: 0;
-
-					@include media-breakpoint( md ) {
-						@include font-size( 3 );
-					}
-				}
-			}
-		}
-
-		div.site-description {
-			grid-area: tag-line-area;
-			text-transform: uppercase;
-			text-align: center;
-			@include font-size( .9 );
-		}
-
-		&-with-logo {
-			justify-content: center;
-			grid-template-areas:
-			"custom-logo title-area"
-			"custom-logo tag-line-area";
-
-			div.custom-logo {
-				grid-area: custom-logo;
-			}
-		}
-	}
-}
-
-
 main#main {
 
 	section.not-found {
@@ -143,12 +40,15 @@ main#main {
 
 article.hentry {
 
-	> img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image {
-		width: 100%;
-	}
-
 	header.entry-header {
-		padding: 0 30px;
+
+		.entry-title {
+			padding: 0 30px;
+		}
+
+		hr {
+			margin: 0 30px;
+		}
 	}
 }
 
@@ -159,28 +59,6 @@ article.hentry {
 img.wonkasoft-logo-cover {
 	height: 100%;
 	margin: auto;
-}
-
-div.post-thumbnail, div.front-page-default-thumbnail {
-	min-height: 225px;
-	max-height: 550px;
-	overflow: hidden;
-	display: grid;
-	align-items: center;
-	margin: 4px 0 15px;
-	@include prefix( box-shadow, 0 1px 4px 0 rgba( #000, .6 ), o moz webkit );
-
-	img {
-		width: 100%;
-		object-fit: cover;
-	}
-}
-
-div.post-thumbnail:not(.home div.post-thumbnail) {
-
-	@include media-breakpoint( md ) {
-		min-height: 525px;
-	}
 }
 
 .page-links {
@@ -210,6 +88,10 @@ footer.entry-footer {
 	ul {
 		list-style: none;
 		margin: 0;
+	}
+
+	hr {
+		margin: 30px 0;
 	}
 }
 

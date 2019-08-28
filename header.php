@@ -28,9 +28,46 @@ $top_message = ( ! empty( get_theme_mod( 'topbar_message', false ) ) ) ? get_the
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wonkasoft-starter' ); ?></a>
 
 	<header id="masthead" class="site-header">
+		<?php
+		if ( has_custom_logo() ) :
+			?>
+		
+		<div class="site-branding-with-logo">
+				<div class="custom-logo"><?php the_custom_logo(); ?></div>
+			<?php
+			if ( is_front_page() && is_home() ) :
+				?>
+					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<?php else : ?>
+					<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1><?php bloginfo( 'name' ); ?></h1></a></div>
+					<?php
+			endif;
+			else :
+				?>
+		<div class="site-branding">
+					<?php
+					if ( is_front_page() && is_home() ) :
+						?>
+					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<?php else : ?>
+					<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1><?php bloginfo( 'name' ); ?></h1></a></div>
+						<?php
+						endif;
+			endif;
+
+				$description = get_bloginfo( 'description', 'display' );
+			if ( $description || is_customize_preview() ) :
+				?>
+				<div class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></div>
+					<?php
+			endif;
+			?>
+		</div><!-- .site-branding -->
 		<?php if ( ! empty( $enable_top_msg ) ) : ?>
 			<div class="contact-number">
-				<span class="contact-number-text"><?php echo $top_message; ?></span>
+				<a href="tel:<?php echo $top_message; ?>" class="contact-tel">
+					<i class="fa fa-phone chat-bubble"></i><span class="contact-number-text"><?php echo $top_message; ?></span>
+				</a>
 			</div><!-- .contact-number -->
 		<?php endif; ?>
 
@@ -50,39 +87,5 @@ $top_message = ( ! empty( get_theme_mod( 'topbar_message', false ) ) ) ? get_the
 				);
 				?>
 		</nav><!-- #site-navigation -->
-		<?php
-		if ( has_custom_logo() ) :
-			?>
 		
-		<div class="site-branding-with-logo">
-				<div class="custom-logo"><?php the_custom_logo(); ?></div>
-			<?php
-			if ( is_front_page() && is_home() ) :
-				?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php else : ?>
-					<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1><?php bloginfo( 'name' ); ?></h1></a></div>
-					<?php
-				endif;
-		else :
-			?>
-		<div class="site-branding">
-			<?php
-			if ( is_front_page() && is_home() ) :
-				?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php else : ?>
-					<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1><?php bloginfo( 'name' ); ?></h1></a></div>
-					<?php
-				endif;
-		endif;
-
-			$description = get_bloginfo( 'description', 'display' );
-		if ( $description || is_customize_preview() ) :
-			?>
-				<div class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></div>
-			<?php
-			endif;
-		?>
-		</div><!-- .site-branding -->
 	</header><!-- #masthead -->

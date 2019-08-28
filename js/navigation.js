@@ -30,12 +30,20 @@
 		menu.className += ' nav-menu';
 	}
 
+	var body_el = ( document.querySelector( 'body' ) ) ? document.querySelector( 'body' ): '';
+	var menu_height = body_el.offsetHeight - document.querySelector( 'header#masthead' ).offsetHeight;
+	var menu_el = ( document.querySelector( '#site-navigation #top-main' ) ) ? document.querySelector( '#site-navigation #top-main' ): '';
+
 	button.onclick = function() {
 		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
+			body_el.style = '';
+			menu_el.style = '';
 			container.className = container.className.replace( ' toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
 			menu.setAttribute( 'aria-expanded', 'false' );
 		} else {
+			body_el.style.overflow = 'hidden';
+			menu_el.style.height = menu_height + 'px';
 			container.className += ' toggled';
 			button.setAttribute( 'aria-expanded', 'true' );
 			menu.setAttribute( 'aria-expanded', 'true' );

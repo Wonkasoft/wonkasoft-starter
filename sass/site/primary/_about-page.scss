@@ -1,0 +1,24 @@
+.facilitators-bio {
+
+	> .wp-block-column {
+		@include box-shadow( 0 1px 6px 0 rgba( #000, 0.3 ) );
+
+		.wp-block-image {
+			height: 250px;
+			overflow: hidden;
+
+			figure {
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				
+				img {
+					width: 100%;
+					object-fit: cover;
+				}
+			}
+
+		}
+	} 
+
+}

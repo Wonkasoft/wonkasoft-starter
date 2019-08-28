@@ -313,7 +313,6 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	  */
 	$section_qty = ( ! empty( get_theme_mod( 'section_qty' ) ) ) ? get_theme_mod( 'section_qty' ) : 1;
 	if ( $section_qty > 0 ) :
-
 		for ( $i = 1; $i <= $section_qty; $i++ ) {
 			$wp_customize->add_setting(
 				'home_page_section_color_' . $i,
@@ -385,7 +384,7 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 				)
 			);
 		}
-endif;
+	endif;
 
 	 /**
 	  * Website Copyright Info Section
@@ -460,7 +459,6 @@ endif;
 		)
 	);
 	/*=====  End of Themes options for customizer  ======*/
-
 }
 add_action( 'customize_register', 'wonkasoft_starter_customize_register' );
 
@@ -486,6 +484,6 @@ function wonkasoft_starter_customize_partial_blogdescription() {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function wonkasoft_starter_customize_preview_js() {
-	wp_enqueue_script( 'wonkasoft-starter-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+	  wp_enqueue_script( 'wonkasoft-starter-customizer', str_replace( array( 'http:', 'https:' ), '', get_stylesheet_directory_uri() . '/inc/js/customizer.js' ), array( 'customize-preview' ), '1.0.0', true );
 }
 add_action( 'customize_preview_init', 'wonkasoft_starter_customize_preview_js' );

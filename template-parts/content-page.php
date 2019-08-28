@@ -11,10 +11,6 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-		<hr />
-	</header><!-- .entry-header -->
-
 	<?php
 	if ( has_post_thumbnail() ) :
 		wonkasoft_starter_post_thumbnail();
@@ -24,6 +20,11 @@
 			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/chalk_board_image.jpeg'; ?>" class="img-responsive wonkasoft-logo-cover" />
 		</div>
 	<?php endif; ?>
+	
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<hr />
+	</header><!-- .entry-header -->
+
 
 	<div class="entry-content">
 		<?php

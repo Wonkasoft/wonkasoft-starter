@@ -2,18 +2,15 @@
 /**
  * WooCommerce Compatibility File
  *
- * @link https://woocommerce.com/
- *
  * @package Wonkasoft_Starter
+ * @link https://woocommerce.com/
  */
 
 /**
  * WooCommerce setup function.
  *
  * @link https://docs.woocommerce.com/document/third-party-custom-theme-compatibility/
- * @link https://github.com/woocommerce/woocommerce/wiki/Enabling-product-gallery-features-(zoom,-swipe,-lightbox)-in-3.0.0
- *
- * @return void
+ * @link https://github.com/woocommerce/woocommerce/wiki/Enabling-product-gallery-features-(zoom,-swipe,-lightbox)-in-3.0.0.
  */
 function wonkasoft_starter_woocommerce_setup() {
 	add_theme_support( 'woocommerce' );
@@ -29,7 +26,7 @@ add_action( 'after_setup_theme', 'wonkasoft_starter_woocommerce_setup' );
  * @return void
  */
 function wonkasoft_starter_woocommerce_scripts() {
-	wp_enqueue_style( 'wonkasoft-starter-woocommerce-style', get_template_directory_uri() . '/woocommerce.css' );
+	wp_enqueue_style( 'wonkasoft-starter-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', array(), '1.0.0', 'all' );
 
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
@@ -96,7 +93,7 @@ add_filter( 'woocommerce_product_thumbnails_columns', 'wonkasoft_starter_woocomm
  * @return integer products per row.
  */
 function wonkasoft_starter_woocommerce_loop_columns() {
-	return 3;
+																																	return 3;
 }
 add_filter( 'loop_shop_columns', 'wonkasoft_starter_woocommerce_loop_columns' );
 
@@ -185,15 +182,9 @@ add_action( 'woocommerce_after_main_content', 'wonkasoft_starter_woocommerce_wra
  * Sample implementation of the WooCommerce Mini Cart.
  *
  * You can add the WooCommerce Mini Cart to header.php like so ...
- *
-	<?php
-		if ( function_exists( 'wonkasoft_starter_woocommerce_header_cart' ) ) {
-			wonkasoft_starter_woocommerce_header_cart();
-		}
-	?>
  */
-
 if ( ! function_exists( 'wonkasoft_starter_woocommerce_cart_link_fragment' ) ) {
+
 	/**
 	 * Cart Fragments.
 	 *
@@ -254,7 +245,7 @@ if ( ! function_exists( 'wonkasoft_starter_woocommerce_header_cart' ) ) {
 					);
 
 					the_widget( 'WC_Widget_Cart', $instance );
-				?>
+					?>
 			</li>
 		</ul>
 		<?php

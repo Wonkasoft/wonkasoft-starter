@@ -110,7 +110,8 @@ section.front-page-section {
 		width: 500px;
 		max-width: 100%;
 		background: rgba( #000, .4);
-		padding: 8px;
+		padding: 15px;
+		grid-gap: 15px;
 
 		span.gform_description {
 			padding: 0;
@@ -120,6 +121,7 @@ section.front-page-section {
 
 		> div {
 			margin: 0;
+			padding: 0;
 			display: grid;
 			align-items: center;
 
@@ -132,6 +134,7 @@ section.front-page-section {
 
 				li.wonka-form-group {
 					padding: 0;
+					margin: 0;
 
 
 					input:not([type=radio]) {
@@ -141,13 +144,14 @@ section.front-page-section {
 
 				li.newsletter-name {
 
-
 					> div {
 						display: grid;
 						grid-auto-columns: auto;
 						grid-auto-flow: row;
 						grid-gap: 15px;
 						width: 100%;
+						margin: 0;
+						padding: 0;
 
 						span {
 							width: 100%;
@@ -179,5 +183,63 @@ section.front-page-section {
 	div.section-content {
 		padding: 15px;
 		margin: auto;
+	}
+}
+
+div.img-cta-wrap {
+	position: relative;
+	margin-bottom: 45px;
+	min-height: 450px;
+	z-index: 200;
+	@include value_prefix( background, radial-gradient( circle farthest-side at 75% 50%, rgba( 203, 0, 0, .5 ) 0%, rgba( 203, 0, 0, 1 ) 100% ), o moz webkit );
+	@include prefix( box-shadow, 0 1px 4px 0 rgba( #000, .6 ), o moz webkit );
+
+	div.front-page-default-thumbnail, div.post-thumbnail {
+		min-height: 225px;
+		max-height: 550px;
+		overflow: hidden;
+		display: grid;
+		align-items: center;
+		margin: 0 0 15px;
+
+		div.first-circle {
+			position: absolute;
+			top: 35px;
+			right: -10px;
+			background: rgba( 208, 76, 59, 1 );
+			width: 480px;
+			height: 480px;
+			border-radius: 50%;
+		}
+
+		div.second-outline-circle {
+			position: absolute;
+			top: 59px;
+			right: 3px;
+			width: 445px;
+			height: 445px;
+			border: 2px dashed rgba( 255, 255, 255, 1 );
+			border-radius: 50%;
+		}
+
+		div.third-circle {
+			position: absolute;
+			top: 60px;
+			right: 3px;
+			width: 435px;
+			height: 435px;
+			background: rgba( 211, 178, 156, 1 );
+			border-radius: 50%;
+		}
+
+		img {
+			position: absolute;
+			top: 75px;
+			right: 18px;
+			width: 385px;
+			height: 385px;
+			border-radius: 50%;
+			object-fit: cover;
+		}
 	}
 }
