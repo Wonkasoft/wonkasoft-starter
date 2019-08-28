@@ -200,7 +200,7 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'cta_btn_text',
 		array(
-			'default'             => '0',
+			'default'             => 'Learn More',
 			'transport'           => 'refresh',
 		)
 	);
@@ -225,7 +225,7 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'cta_link',
 		array(
-			'default'               => 'Learn More',
+			'default'               => '0',
 			'transport'             => 'refresh',
 		)
 	);
