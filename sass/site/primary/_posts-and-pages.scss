@@ -57,7 +57,6 @@ article.hentry {
 }
 
 img.wonkasoft-logo-cover {
-	height: 100%;
 	margin: auto;
 }
 
@@ -93,6 +92,10 @@ footer.entry-footer {
 	hr {
 		margin: 30px 0;
 	}
+}
+
+header.page-header {
+	padding: 0 15px;
 }
 
 footer#colophon {

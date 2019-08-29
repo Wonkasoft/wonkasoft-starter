@@ -10,7 +10,15 @@
 get_header(); ?>
 
 		<main id="main" class="site-main">
-
+			<?php
+			if ( has_post_thumbnail() ) :
+				wonkasoft_starter_post_thumbnail();
+				?>
+			<?php else : ?>
+				<div class="post-thumbnail">
+					<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/chalk_board_image.jpeg'; ?>" class="img-responsive wonkasoft-logo-cover" />
+				</div>
+			<?php endif; ?>
 		<?php
 		if ( have_posts() ) :
 			?>
@@ -40,14 +48,12 @@ get_header(); ?>
 
 			the_posts_navigation();
 
-		else :
+			else :
 
-			get_template_part( 'template-parts/content', 'none' );
+				get_template_part( 'template-parts/content', 'none' );
 
 		endif;
-		?>
-
-<?php get_sidebar(); ?>
+			?>
 		</main><!-- #main -->
 
 <?php
