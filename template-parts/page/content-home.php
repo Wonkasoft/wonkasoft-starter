@@ -26,14 +26,14 @@
 	<?php endif; ?>
 	<?php
 	if ( ! empty( get_theme_mod( 'cta_message' ) ) ) :
-		$cta_title = ( ! empty( get_theme_mod( 'cta_message' ) ) ) ? wp_kses_post( get_theme_mod( 'cta_message' ) ) : '';
-		$cta_link = ( ! empty( get_theme_mod( 'cta_link' ) ) ) ? esc_url( get_theme_mod( 'cta_link' ) ) : '';
-		$cta_btn_text = ( ! empty( get_theme_mod( 'cta_btn_text' ) ) ) ? wp_kses_post( get_theme_mod( 'cta_btn_text' ) ) : '';
+		$cta_title = ( ! empty( get_theme_mod( 'cta_message' ) ) ) ? get_theme_mod( 'cta_message' ) : '';
+		$cta_link = ( ! empty( get_theme_mod( 'cta_link' ) ) ) ? get_permalink( get_theme_mod( 'cta_link' ) ) : '';
+		$cta_btn_text = ( ! empty( get_theme_mod( 'cta_btn_text' ) ) ) ? get_theme_mod( 'cta_btn_text' ) : '';
 		?>
 		<div class="cta-message">
-			<header class="header-cta-message"><h4><?php echo esc_html__( get_theme_mod( 'cta_message' ) ); ?></h4>
+			<header class="header-cta-message"><h4><?php echo wp_kses_post( $cta_title ); ?></h4>
 			</header>
-			<a href="<?php echo $cta_link; ?>" class="wonka-btn btn btn-primary"><?php echo $cta_btn_text; ?></a>
+			<a href="<?php echo esc_url( $cta_link ); ?>" class="wonka-btn btn btn-primary"><?php echo wp_kses_post( $cta_btn_text ); ?></a>
 		</div>
 	<?php endif; ?>
 	</div>
