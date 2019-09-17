@@ -11,6 +11,21 @@ get_header(); ?>
 
 		<main id="main" class="site-main-error-404">
 
+			<header class="entry-header">
+			<?php
+			if ( has_post_thumbnail() ) :
+				wonkasoft_starter_post_thumbnail();
+				?>
+			<?php else : ?>
+				<div class="post-thumbnail">
+					<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/chalk_board_image.jpeg'; ?>" class="img-responsive wonkasoft-logo-cover" />
+				</div>
+			<?php endif; ?>
+			
+				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+				<hr />
+			</header><!-- .entry-header -->
+
 			<section class="error-404 not-found">
 				<header class="page-header">
 					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'wonkasoft-starter' ); ?></h1>

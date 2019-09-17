@@ -125,6 +125,14 @@ header#masthead {
           color: #333333;
           @include font-size( 1 );
         }
+
+        @include media-breakpoint( md ) {
+
+          h1 {
+
+            @include font-size( 1.8 );
+          }
+        }
       }
     }
 
@@ -132,7 +140,11 @@ header#masthead {
       grid-area: tag-line-area;
       text-transform: uppercase;
       text-align: center;
-      @include font-size( 1 );
+      @include font-size( .9 );
+
+      @include media-breakpoint( md ) {
+        @include font-size( 1.2 );
+      }
     }
 
     &-with-logo {
