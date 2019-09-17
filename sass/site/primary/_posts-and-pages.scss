@@ -25,6 +25,8 @@
 	position: relative;
 	min-height: 100%;
 	display: grid;
+	grid-template-columns: 100%;
+	grid-auto-rows: auto;
 }
 
 main#main {
@@ -39,6 +41,7 @@ main#main {
 }
 
 article.hentry {
+	overflow-x: hidden;
 
 	header.entry-header {
 
@@ -100,7 +103,6 @@ header.page-header {
 
 footer#colophon {
 	padding: 15px;
-	height: 60px;
 	display: grid;
 	position: relative;
 	align-items: center;
