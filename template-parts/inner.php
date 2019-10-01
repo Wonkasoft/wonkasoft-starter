@@ -37,26 +37,13 @@
 		?>
 	<?php else : ?>
 		<div class="post-thumbnail">
-			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/chalk_board_image.jpeg'; ?>" class="img-responsive wonkasoft-logo-cover" />
+			<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/chalk_board_image.jpeg' ); ?>" class="img-responsive wonkasoft-logo-cover" />
 		</div>
 	<?php endif; ?>
 
 	<div class="entry-content">
 		<?php
-			the_content(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'wonkasoft-starter' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					get_the_title()
-				)
-			);
+			the_excerpt();
 
 			wp_link_pages(
 				array(
