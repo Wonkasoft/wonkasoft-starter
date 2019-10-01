@@ -85,8 +85,9 @@ div.inner-loop {
 		.entry-summary {
 			grid-area: module-content;
 			grid-template-columns: unset;
-			grid-template-rows: 0 100% 0;
+			grid-auto-rows: auto;
 			grid-auto-flow: unset;
+			height: 150px;
 			padding: 15px;
 
 			p {
