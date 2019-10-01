@@ -69,10 +69,12 @@ div.inner-loop {
 
 		header.entry-header {
 			grid-area: module-header;
-			padding: 8px;
+			display: grid;
+			align-items: center;
+			padding: 15px;
 
-			h1 {
-				margin: 0 0 8px;
+			h1.entry-title {
+				margin: auto 0;
 			}
 		}
 
@@ -94,6 +96,7 @@ div.inner-loop {
 
 		footer.entry-footer {
 			grid-area: module-footer;
+			display: grid;
 		  	align-items: center;
 			padding: 8px;
 		}
