@@ -28,8 +28,8 @@
 	<?php endif; ?>
 	<?php
 	if ( ! empty( get_theme_mod( 'cta_message' ) ) ) :
-		$cta_title = ( ! empty( get_theme_mod( 'cta_message' ) ) ) ? get_theme_mod( 'cta_message' ) : '';
-		$cta_link = ( ! empty( get_theme_mod( 'cta_link' ) ) ) ? get_permalink( get_theme_mod( 'cta_link' ) ) : '';
+		$cta_title    = ( ! empty( get_theme_mod( 'cta_message' ) ) ) ? get_theme_mod( 'cta_message' ) : '';
+		$cta_link     = ( ! empty( get_theme_mod( 'cta_link' ) ) ) ? get_permalink( get_theme_mod( 'cta_link' ) ) : '';
 		$cta_btn_text = ( ! empty( get_theme_mod( 'cta_btn_text' ) ) ) ? get_theme_mod( 'cta_btn_text' ) : '';
 		?>
 		<div class="cta-message">
@@ -42,7 +42,12 @@
 	<div class="entry-content">
 		<div class="inner-loop">
 			<?php
-			$query = new WP_Query( array( 'post_type' => array( 'post' ) ) );
+			$query = new WP_Query(
+				array(
+					'post_type'     => array( 'page' ),
+					'post_per_page' => 3,
+				)
+			);
 			if ( $query->have_posts() ) :
 				?>
 
