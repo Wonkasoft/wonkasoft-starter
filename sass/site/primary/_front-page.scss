@@ -89,6 +89,8 @@ div.inner-loop {
 			grid-auto-flow: unset;
 			height: 150px;
 			padding: 15px;
+			text-overflow: ellipsis;
+			overflow: hidden;
 
 			p {
 			  	margin: 0;
