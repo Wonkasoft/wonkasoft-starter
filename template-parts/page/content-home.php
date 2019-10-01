@@ -44,8 +44,8 @@
 			<?php
 			$query = new WP_Query(
 				array(
-					'post_type'     => array( 'page' ),
-					'post_per_page' => 3,
+					'post_type'      => array( 'page' ),
+					'posts_per_page' => 3,
 				)
 			);
 			if ( $query->have_posts() ) :
