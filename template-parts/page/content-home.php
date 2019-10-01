@@ -46,6 +46,7 @@
 				array(
 					'post_type'      => array( 'page' ),
 					'orderby'        => array( 'menu_order' ),
+					'order'          => array( 'ASC' ),
 					'posts_per_page' => 3,
 				)
 			);
