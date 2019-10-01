@@ -30,7 +30,7 @@
 		endif;
 		?>
 	</header><!-- .entry-header -->
-
+	<a href="<?php echo esc_url( get_permalink() ); ?>">
 	<?php
 	if ( has_post_thumbnail() ) :
 		wonkasoft_starter_post_thumbnail();
@@ -40,7 +40,7 @@
 			<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/chalk_board_image.jpeg' ); ?>" class="img-responsive wonkasoft-logo-cover" />
 		</div>
 	<?php endif; ?>
-
+	</a>
 	<div class="entry-content">
 		<?php
 			the_excerpt();
@@ -58,3 +58,4 @@
 		<?php wonkasoft_starter_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
+
