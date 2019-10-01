@@ -45,6 +45,7 @@
 			$query = new WP_Query(
 				array(
 					'post_type'      => array( 'page' ),
+					'orderby'        => array( 'menu_order' ),
 					'posts_per_page' => 3,
 				)
 			);
