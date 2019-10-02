@@ -30,7 +30,7 @@ div.inner-loop {
 	display: grid;
 	grid-auto-columns: auto;
 	grid-auto-rows: auto;
-	grid-auto-flow: column;
+	grid-auto-flow: row;
 	grid-gap: 15px;
 
 	> section {
@@ -112,7 +112,7 @@ div.inner-loop {
 	
 	@include media-breakpoint( md ) {
 		grid-auto-columns: max( 32.3% );
-
+		grid-auto-flow: column;
 	}
 }
 
