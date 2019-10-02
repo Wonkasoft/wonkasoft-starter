@@ -28,7 +28,7 @@
 
 div.inner-loop {
 	display: grid;
-	grid-auto-columns: max( 32.3% );
+	grid-auto-columns: auto;
 	grid-auto-rows: auto;
 	grid-auto-flow: column;
 	grid-gap: 15px;
@@ -107,6 +107,12 @@ div.inner-loop {
 			padding: 8px;
 			height: 42px;
 		}
+
+	}
+	
+	@include media-breakpoint( md ) {
+		grid-auto-columns: max( 32.3% );
+
 	}
 }
 
