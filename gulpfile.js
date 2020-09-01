@@ -15,8 +15,8 @@ json = require('json-file'),
 jsmin = require('gulp-js-minify'),
 themeName = json.read('./package.json').get('name'),
 siteName = json.read('./package.json').get('siteName'),
+local = json.read('./package.json').get('localhost'),
 themeDir = '../' + themeName,
-myproxy = "https://listers.dev/" + siteName,
 plumberErrorHandler = { errorHandler: notify.onError({
 
 	title: 'Gulp',
@@ -31,14 +31,12 @@ plumberErrorHandler = { errorHandler: notify.onError({
 
 gulp.task('browser-sync', function() {
 	browserSync.init({
-		https: true,
-		logPrefix: themeName,
 		proxy: {
-			target: myproxy
+			target: local + siteName,
+			ws: true
 		},
-		host: 'listers.dev',
-		open: 'Local',
-		ghost: false,
+		watch: true,
+		https: true,
 		port: 4000
 	});
 });

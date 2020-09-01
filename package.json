@@ -35,11 +35,12 @@
     "gulp-plumber": "^1.2.1",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
-    "jshint": "^2.11.1",
+    "jshint": "^2.12.0",
     "json-file": "^0.1.0",
     "node-fs": "^0.1.7",
     "node-sass": "^4.14.1",
     "path": "^0.12.7"
   },
-  "siteName": "leadershipfacilitators.com"
+  "siteName": "leadershipfacilitators.com",
+  "localhost": "https://wonkasoft.dev/"
 }

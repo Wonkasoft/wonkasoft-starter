@@ -54,3 +54,4 @@ if ( 0 < $section_mods->sections_qty ) :
 	endfor;
 endif;
 	get_footer();
+	

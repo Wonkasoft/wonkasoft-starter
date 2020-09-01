@@ -17,7 +17,7 @@ $copyright = ( ! empty( get_theme_mod( 'copyright_bar_message', false ) ) ) ? ge
 			<span class="copyright-text">
 			<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( '%1$1s &copy; %2$2s', 'wonkasoft-starter' ), date( 'Y' ), $copyright );
+				printf( esc_html__( '&copy; %1$1s %2$2s', 'wonkasoft-starter' ), date( 'Y' ), $copyright );
 			?>
 			</span>
 			<span class="sep"> | </span>

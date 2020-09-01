@@ -72,10 +72,10 @@ div.inner-loop {
 			grid-area: module-header;
 			display: grid;
 			align-items: center;
-			padding: 15px;
+			padding: 0 15px;
 			height: 70px;
 
-			h1.entry-title {
+			h2.entry-title {
 				margin: auto 0;
 			}
 		}
@@ -117,21 +117,45 @@ div.inner-loop {
 }
 
 section.front-page-section {
+	margin-top: 30px;
 	width: 100%;
 	background-position: center center;
 	background-size: cover;
 	padding: 15px;
 	color: #ffffff;
 
+	.new-signup-cols {
+
+		.new-signup-left-col {
+			position: relative;
+			margin: auto;
+			padding: 35px 15px;
+			max-width: 600px;
+			background: rgba( #fff, .98);
+			color: #333333;
+			border-radius: 8px;
+			@include prefix( box-shadow, 0 1px 3px 0 rgba( #000, 0.7 ), o moz webkit );
+
+			p {
+				
+			}
+		}
+	}
+
 	form.wonka-newsletter-form {
+		position: relative;
+		top: -45px;
 		margin: auto;
 		display: grid;
 		align-items: center;
 		width: 500px;
 		max-width: 100%;
-		background: rgba( #000, .4);
-		padding: 15px;
+		background: rgba( #fff, .98);
+		padding: 35px 15px;
 		grid-gap: 15px;
+		border-radius: 8px;
+		color: #333333;
+		@include prefix( box-shadow, 0 1px 3px 0 rgba( #000, 0.7 ), o moz webkit );
 
 		span.gform_description {
 			padding: 0;
@@ -158,7 +182,8 @@ section.front-page-section {
 
 
 					input:not([type=radio]) {
-						@include prefix( box-shadow, 0 1px 6px 0 rgba( #000, 0.3 ), o moz webkit );
+						height: 42px;
+						@include prefix( box-shadow, 0 1px 3px 0 rgba( #000, 0.3 ), o moz webkit );
 					}
 				}
 
