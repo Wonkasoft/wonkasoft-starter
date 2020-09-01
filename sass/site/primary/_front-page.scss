@@ -128,7 +128,7 @@ section.front-page-section {
 
 		.new-signup-left-col {
 			position: relative;
-			margin: auto;
+			margin: auto 0 auto auto;
 			padding: 35px 15px;
 			max-width: 600px;
 			background: rgba( #fff, .98);
@@ -137,7 +137,7 @@ section.front-page-section {
 			@include prefix( box-shadow, 0 1px 3px 0 rgba( #000, 0.7 ), o moz webkit );
 
 			p {
-				
+
 			}
 		}
 	}
