@@ -49,14 +49,15 @@ div.inner-loop {
 	article.hentry {
 		display: grid;
 		grid-auto-columns: auto;
-		grid-auto-rows: auto;
+		grid-auto-rows: 150px 70px auto auto;
 		grid-template-areas:
 		"module-image"
 		"module-header"
 		"module-content"
 		"module-footer";
 		justify-self: auto;
-		@include prefix( box-shadow, 0 1px 4px 0 rgba( #000, .6 ), o moz webkit );
+		border-radius: 8px;
+		@include prefix( box-shadow, 0 1px 4px 0 rgba( #000, .7 ), o moz webkit );
 
 		.post-thumbnail {
 			grid-area: module-image;
@@ -77,21 +78,20 @@ div.inner-loop {
 
 			h2.entry-title {
 				margin: auto 0;
+				@include font-size( 1.5 );
 			}
 		}
 
-		.page-content,
-		.entry-content,
-		.entry-summary {
+		.entry-content {
 			grid-area: module-content;
 			grid-template-columns: unset;
 			grid-auto-rows: auto;
 			grid-auto-flow: unset;
-			height: 150px;
 			padding: 15px;
 			clip: 3;
 			text-overflow: ellipsis;
 			overflow: hidden;
+
 
 			p {
 			  	margin: 0;
@@ -129,12 +129,12 @@ section.front-page-section {
 		.new-signup-left-col {
 			position: relative;
 			margin: auto 0 auto auto;
-			padding: 35px 15px;
+			padding: 35px 30px;
 			max-width: 600px;
 			background: rgba( #fff, .98);
 			color: #333333;
 			border-radius: 8px;
-			@include prefix( box-shadow, 0 1px 3px 0 rgba( #000, 0.7 ), o moz webkit );
+			@include prefix( box-shadow, 0 1px 4px 0 rgba( #000, 0.7 ), o moz webkit );
 
 			p {
 
@@ -151,11 +151,11 @@ section.front-page-section {
 		width: 500px;
 		max-width: 100%;
 		background: rgba( #fff, .98);
-		padding: 35px 15px;
+		padding: 45px 30px;
 		grid-gap: 15px;
 		border-radius: 8px;
 		color: #333333;
-		@include prefix( box-shadow, 0 1px 3px 0 rgba( #000, 0.7 ), o moz webkit );
+		@include prefix( box-shadow, 0 1px 4px 0 rgba( #000, 0.7 ), o moz webkit );
 
 		span.gform_description {
 			padding: 0;
@@ -183,7 +183,7 @@ section.front-page-section {
 
 					input:not([type=radio]) {
 						height: 42px;
-						@include prefix( box-shadow, 0 1px 3px 0 rgba( #000, 0.3 ), o moz webkit );
+						@include prefix( box-shadow, 0 1px 4px 0 rgba( #000, 0.7 ), o moz webkit );
 					}
 				}
 
