@@ -7,10 +7,9 @@ Custom Built for the Wonkasoft development team
 * Twitter: [@wonkasoft](http://twitter.com/wonkasoft)
 * Author : [Louis Lister](http://wonkasoft.com) // [@devturtle](http://twitter.com/devturtle2015)
 * Author : [Rudy Lister](http://wonkasoft.com) // [@WILvoiceDERNESS](http://twitter.com/WILvoiceDERNESS)
-* Author : [Andrew Enriquez](http://wonkasoft.com)
 
 ## Contributors (in order of pull request)
-[Louis Lister](https://github.com/llister15), [Rudy Lister](https://github.com/MrLister), [Andrew Enriquez](https://github.com/drewe0327)
+[Louis Lister](https://github.com/llister15), [Rudy Lister](https://github.com/MrLister)
 
 
 ## Features
