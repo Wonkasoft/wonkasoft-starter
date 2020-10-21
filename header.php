@@ -27,7 +27,7 @@
 	<header id="masthead" class="site-header">
 		<?php
 		if ( ! empty( get_theme_mod( 'enable_topbar' ) ) ) :
-			$top_banner_color = ( ! empty( get_theme_mod( 'topbar_color', false ) ) ) ? ' style="background-color:' . get_theme_mod( 'topbar_color', '#fff' ) . ';"' : '';
+			$top_banner_color = ( ! empty( get_theme_mod( 'topbar_color', false ) ) ) ? ' style=background-color:' . get_theme_mod( 'topbar_color', '#fff' ) . ';' : '';
 			$top_message      = ( ! empty( get_theme_mod( 'topbar_message', false ) ) ) ? get_theme_mod( 'topbar_message', false ) : '';
 
 			?>
