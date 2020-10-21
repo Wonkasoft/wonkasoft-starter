@@ -139,7 +139,7 @@ function wonkasoft_starter_scripts() {
 	wp_enqueue_style( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css', array(), '4.5.2', 'all' );
 	wp_style_add_data( 'bootstrap', array( 'integrity', 'crossorigin' ), array( 'sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z', 'anonymous' ) );
 
-	wp_enqueue_style( 'wonkasoft-starter-style', get_template_directory_uri(), array(), wp_get_theme()->version, 'all' );
+	wp_enqueue_style( 'wonkasoft-starter-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->version, 'all' );
 
 	/**
 	 * List of scripts enqueues
