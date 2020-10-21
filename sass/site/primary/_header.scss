@@ -10,7 +10,7 @@ header#masthead {
   grid-auto-rows: auto;
   grid-gap: 8px;
   align-items: center;
-  background: rgba( #fff, 0 );
+  background: rgba( #bebf5c, 1 );
   color: #333333;
   z-index: 500;
   @include prefix( transition, all .25s ease-in-out, o moz webkit );
@@ -282,7 +282,6 @@ header#masthead {
   }
 
   @include media-breakpoint( md ) {
-    position: fixed;
     color: #ffffff;
 
     div.site-branding {
@@ -320,6 +319,17 @@ header#masthead {
     i.chat-bubble {
       color: #ffffff;
       border: 2px solid #ffffff;
+    }
+  }
+}
+
+.home {
+
+  header#masthead {
+    background: rgba( #bebf5c, 0 );
+ 
+    @include media-breakpoint( md ) {
+      position: fixed;
     }
   }
 }

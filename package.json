@@ -39,6 +39,6 @@
     "node-sass": "^4.14.1",
     "path": "^0.12.7"
   },
-  "siteName": "leadershipfacilitators.com",
+  "siteName": "wonkasoft-starter.com",
   "localhost": "https://wonkasoft.dev/"
 }

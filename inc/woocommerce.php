@@ -26,7 +26,7 @@ add_action( 'after_setup_theme', 'wonkasoft_starter_woocommerce_setup' );
  * @return void
  */
 function wonkasoft_starter_woocommerce_scripts() {
-	wp_enqueue_style( 'wonkasoft-starter-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', array(), '1.0.0', 'all' );
+	wp_enqueue_style( 'wonkasoft-starter-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', array(), time(), 'all' );
 
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
@@ -42,7 +42,7 @@ function wonkasoft_starter_woocommerce_scripts() {
 
 	wp_add_inline_style( 'wonkasoft-starter-woocommerce-style', $inline_font );
 }
-add_action( 'wp_enqueue_scripts', 'wonkasoft_starter_woocommerce_scripts' );
+add_action( 'wp_enqueue_scripts', 'wonkasoft_starter_woocommerce_scripts', 10 );
 
 /**
  * Disable the default WooCommerce stylesheet.
@@ -155,8 +155,12 @@ if ( ! function_exists( 'wonkasoft_starter_woocommerce_wrapper_before' ) ) {
 	 * @return void
 	 */
 	function wonkasoft_starter_woocommerce_wrapper_before() {
+		global $wp_query;
+		$post = $wp_query->get_queried_object();
+			
+		$class_to_add = ( ! empty( $post->label ) ) ? ' ' . strtolower( $post->label ): '';
 		?>
-			<main id="main" class="site-main" role="main">
+			<main id="main" class="site-main<?php echo esc_attr( $class_to_add ); ?>" role="main">
 		<?php
 	}
 }

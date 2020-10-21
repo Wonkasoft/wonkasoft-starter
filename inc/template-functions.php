@@ -12,9 +12,16 @@
  * @return array
  */
 function wonkasoft_starter_body_classes( $classes ) {
-	// Adds a class of hfeed to non-singular pages.
-	if ( ! is_singular() ) {
-		$classes[] = 'hfeed';
+	if ( is_home() || is_front_page() ) {
+		$classes[] = 'wonkasoft-theme-home';
+	}
+
+	if ( is_singular() && ! is_home() && ! is_front_page() ) {
+		$classes[] = 'wonkasoft-theme-single';
+	}
+
+	if ( is_archive() ) {
+		$classes[] = 'wonkasoft-theme-archive';
 	}
 
 	return $classes;

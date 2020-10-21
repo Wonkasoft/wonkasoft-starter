@@ -1,8 +1,8 @@
-/*
-Theme Name: Wonkasoft Starter
-
-WooCommerce styles override
-*/
+/*!
+ * Theme Name: Wonkasoft Starter
+ *
+ * WooCommerce styles override
+ */
 
 /**
  * WooCommerce color variables
@@ -46,3 +46,8 @@ $woocommerce__color-info: #3D9CD2;
  * WooCommerce widgets
  */
 @import "shop/widgets";
+
+/**
+ * WooCommerce pages
+ */
+@import "shop/woo-pages";
