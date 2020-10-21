@@ -9,9 +9,6 @@
  * @package Wonkasoft_Starter
  */
 
-$enable_top_msg = ( ! empty( get_theme_mod( 'enable_topbar' ) ) ) ? true : false;
-$top_message = ( ! empty( get_theme_mod( 'topbar_message', false ) ) ) ? get_theme_mod( 'topbar_message', false ) : '';
-
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -29,6 +26,16 @@ $top_message = ( ! empty( get_theme_mod( 'topbar_message', false ) ) ) ? get_the
 
 	<header id="masthead" class="site-header">
 		<?php
+		if ( ! empty( get_theme_mod( 'enable_topbar' ) ) ) :
+			$top_banner_color = ( ! empty( get_theme_mod( 'topbar_color', false ) ) ) ? ' style="background-color:' . get_theme_mod( 'topbar_color', '#fff' ) . ';"' : '';
+			$top_message      = ( ! empty( get_theme_mod( 'topbar_message', false ) ) ) ? get_theme_mod( 'topbar_message', false ) : '';
+
+			?>
+			<div class="top-banner-message"<?php echo esc_attr( $top_banner_color ); ?>>
+				<span class="top-banner-message-text"><?php echo esc_html( $top_message ); ?></span>
+			</div><!-- .contact-number -->
+		<?php endif; ?>
+		<?php
 		if ( has_custom_logo() ) :
 			?>
 		
@@ -37,9 +44,9 @@ $top_message = ( ! empty( get_theme_mod( 'topbar_message', false ) ) ) ? get_the
 			<?php
 			if ( is_front_page() && is_home() ) :
 				?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<h1 class="site-title sr-only"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<?php else : ?>
-					<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1><?php bloginfo( 'name' ); ?></h1></a></div>
+					<div class="site-title sr-only"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1><?php bloginfo( 'name' ); ?></h1></a></div>
 					<?php
 			endif;
 			else :
@@ -63,13 +70,6 @@ $top_message = ( ! empty( get_theme_mod( 'topbar_message', false ) ) ) ? get_the
 			endif;
 			?>
 		</div><!-- .site-branding -->
-		<?php if ( ! empty( $enable_top_msg ) ) : ?>
-			<div class="contact-number">
-				<a href="tel:<?php echo $top_message; ?>" class="contact-tel">
-					<i class="fa fa-phone chat-bubble"></i><span class="contact-number-text"><?php echo $top_message; ?></span>
-				</a>
-			</div><!-- .contact-number -->
-		<?php endif; ?>
 
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
