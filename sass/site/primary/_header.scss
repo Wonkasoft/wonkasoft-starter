@@ -18,6 +18,10 @@ header#masthead {
   
   div.top-banner-message {
     display: flex;
+    position: relative;
+    top: -15px;
+    right: -15px;
+    left: -15px;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -48,7 +52,7 @@ header#masthead {
     }
 
     @include media-breakpoint( md ) {
-      grid-area: 1 / 2 / 2 / 3;
+      grid-area: auto / 2 / auto / 3;
     }
   }
   

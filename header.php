@@ -49,25 +49,31 @@
 					<div class="site-title sr-only"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1><?php bloginfo( 'name' ); ?></h1></a></div>
 					<?php
 			endif;
+				$description = get_bloginfo( 'description', 'display' );
+			if ( $description || is_customize_preview() ) :
+				?>
+				<div class="site-description sr-only"><?php echo $description; /* WPCS: xss ok. */ ?></div>
+					<?php
+			endif;
 			else :
 				?>
 		<div class="site-branding">
 					<?php
 					if ( is_front_page() && is_home() ) :
 						?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<?php else : ?>
-					<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1><?php bloginfo( 'name' ); ?></h1></a></div>
-						<?php
+						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+						<?php else : ?>
+						<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1><?php bloginfo( 'name' ); ?></h1></a></div>
+							<?php
 						endif;
+						$description = get_bloginfo( 'description', 'display' );
+						if ( $description || is_customize_preview() ) :
+							?>
+					<div class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></div>
+							<?php
+					endif;
 			endif;
 
-				$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) :
-				?>
-				<div class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></div>
-					<?php
-			endif;
 			?>
 		</div><!-- .site-branding -->
 
