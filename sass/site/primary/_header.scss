@@ -27,11 +27,11 @@ header#masthead {
     text-align: center;
     height: 25px;
     color: #ffffff;
-    grid-area: 1 / 1 / 2 / 4;
+    grid-area: 1 / 1 / 2 / 3;
   }
 
   nav.main-navigation {
-    grid-area: auto / 3 / auto / 4;
+    grid-area: auto / 2 / auto / 3;
 
     .current_page_item > a,
     .current-menu-item > a,
@@ -137,25 +137,6 @@ header#masthead {
       div.custom-logo {
         grid-area: custom-logo;
       }
-    }
-  }
-
-  i.chat-bubble {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 8px;
-    width: 38px;
-    height: 38px;
-    border: 2px solid #333333;
-    border-radius: 50% 50% 0 50%;
-    transform: rotateZ( -25deg );
-    @include transition( all .25s ease-in-out );
-    
-    &:before {
-      transform: rotateZ( 25deg );
-      @include font-size( 1.2 );
     }
   }
 
