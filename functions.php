@@ -139,7 +139,7 @@ function wonkasoft_starter_scripts() {
 	wp_enqueue_style( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css', array(), '4.5.2', 'all' );
 	wp_style_add_data( 'bootstrap', array( 'integrity', 'crossorigin' ), array( 'sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z', 'anonymous' ) );
 
-	wp_enqueue_style( 'wonkasoft-starter-style', get_stylesheet_uri(), array(), wp_get_theme()->version, 'all' );
+	wp_enqueue_style( 'wonkasoft-starter-style', get_template_directory_uri(), array(), wp_get_theme()->version, 'all' );
 
 	/**
 	 * List of scripts enqueues
@@ -147,11 +147,11 @@ function wonkasoft_starter_scripts() {
 	wp_enqueue_script( 'bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js', array(), '4.5.2', true );
 	wp_script_add_data( 'bootstrap-js', array( 'integrity', 'crossorigin' ), array( 'sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV', 'anonymous' ) );
 
-	wp_enqueue_script( 'navigation-js', get_stylesheet_directory_uri() . '/js/navigation.js', array( 'jquery' ), time(), true );
+	wp_enqueue_script( 'navigation-js', get_template_directory_uri() . '/js/navigation.js', array( 'jquery' ), time(), true );
 
-	wp_enqueue_script( 'skip-link-focus-fix-js', get_stylesheet_directory_uri() . '/js/skip-link-focus-fix.js', array( 'jquery' ), time(), true );
+	wp_enqueue_script( 'skip-link-focus-fix-js', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array( 'jquery' ), time(), true );
 
-	wp_enqueue_script( 'wonkamizer-js', get_stylesheet_directory_uri() . '/assets/js/wonkasoft-starter.min.js', array( 'jquery' ), time(), true );
+	wp_enqueue_script( 'wonkamizer-js', get_template_directory_uri() . '/assets/js/wonkasoft-starter.min.js', array( 'jquery' ), time(), true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -162,31 +162,31 @@ add_action( 'wp_enqueue_scripts', 'wonkasoft_starter_scripts' );
 /**
  * Implement the Custom Header feature.
  */
-require get_stylesheet_directory() . '/inc/custom-header.php';
+require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
  */
-require get_stylesheet_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/inc/template-tags.php';
 
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-require get_stylesheet_directory() . '/inc/template-functions.php';
+require get_template_directory() . '/inc/template-functions.php';
 
 /**
  * Customizer additions.
  */
-require get_stylesheet_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Section Mods class.
  */
-require get_stylesheet_directory() . '/inc/class-wonkasoft-starter-section-mods.php';
+require get_template_directory() . '/inc/class-wonkasoft-starter-section-mods.php';
 
 /**
  * Load WooCommerce compatibility file.
  */
 if ( class_exists( 'WooCommerce' ) ) {
-	require get_stylesheet_directory() . '/inc/woocommerce.php';
+	require get_template_directory() . '/inc/woocommerce.php';
 }
