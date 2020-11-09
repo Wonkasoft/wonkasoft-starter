@@ -4,11 +4,6 @@
   var header = ( document.querySelector( 'header#masthead' ) ) ? document.querySelector( 'header#masthead' ): '';
   window.onload = function() 
   {
-    if ( document.querySelector( '#wpadminbar' ) ) 
-    {
-      document.querySelector( 'header#masthead' ).style.top = document.querySelector( '#wpadminbar' ).offsetHeight + 'px';
-    }
-
     if ( document.querySelector( '#site-navigation' ) ) 
     {
       if ( window_Yoffset > 0 ) 
@@ -18,11 +13,6 @@
       window.onscroll = function()
       {
         fix_header();
-
-        if ( document.querySelector( '#wpadminbar' ) ) 
-        {
-          document.querySelector( 'header#masthead' ).style.top = document.querySelector( '#wpadminbar' ).offsetHeight + 'px';
-        }
       };
     }
   };
@@ -37,14 +27,18 @@ function fix_header()
     if ( header.classList.contains( 'fixed-nav' ) === false ) 
     {
       header.classList.add( 'fixed-nav' );
+      if ( document.querySelector( '#wpadminbar' ) ) 
+        {
+          document.querySelector( 'header#masthead' ).style.top = document.querySelector( '#wpadminbar' ).offsetHeight + 'px';
+        }
     }
   }
   else
   {
-    header.style = ''; 
     if ( header.classList.contains( 'fixed-nav' ) ) 
     {
       header.classList.remove( 'fixed-nav' );
+      document.querySelector( 'header#masthead' ).removeAttribute( 'style' );
     }
   }
 }

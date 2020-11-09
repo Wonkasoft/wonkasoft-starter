@@ -42,11 +42,11 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	$wp_customize->add_panel(
 		'wonkasoft_theme_options',
 		array(
-			'priority'        => 5,
-			'capability'      => 'edit_theme_options',
-			'theme_supports'  => '',
-			'title'           => __( 'Wonkasoft Starter Homepage Options', 'Wonkasoft_Starter' ),
-			'description'     => __( 'Theme Settings', 'Wonkasoft_Starter' ),
+			'priority'       => 5,
+			'capability'     => 'edit_theme_options',
+			'theme_supports' => '',
+			'title'          => __( 'Wonkasoft Starter Homepage Options', 'Wonkasoft_Starter' ),
+			'description'    => __( 'Theme Settings', 'Wonkasoft_Starter' ),
 		)
 	);
 
@@ -103,8 +103,8 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'topbar_color',
 		array(
-			'default'           => '',
-			'transport'         => 'refresh',
+			'default'   => '',
+			'transport' => 'refresh',
 		)
 	);
 
@@ -131,8 +131,8 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'topbar_message',
 		array(
-			'default'           => '',
-			'transport'         => 'refresh',
+			'default'   => '',
+			'transport' => 'refresh',
 		)
 	);
 
@@ -176,8 +176,8 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'cta_message',
 		array(
-			'default'           => '',
-			'transport'         => 'refresh',
+			'default'   => '',
+			'transport' => 'refresh',
 		)
 	);
 
@@ -200,8 +200,8 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'cta_btn_text',
 		array(
-			'default'             => 'Learn More',
-			'transport'           => 'refresh',
+			'default'   => 'Learn More',
+			'transport' => 'refresh',
 		)
 	);
 
@@ -211,12 +211,12 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 			$wp_customize,
 			'cta_btn_text_control',
 			array(
-				'label'             => __( 'Set Button Text', 'Wonkasoft_Starter' ),
-				'section'           => 'front_page_cta',
-				'settings'          => 'cta_btn_text',
-				'type'              => 'text',
-				'allow_addition'    => true,
-				'description'       => 'Set the text for the cta button.',
+				'label'          => __( 'Set Button Text', 'Wonkasoft_Starter' ),
+				'section'        => 'front_page_cta',
+				'settings'       => 'cta_btn_text',
+				'type'           => 'text',
+				'allow_addition' => true,
+				'description'    => 'Set the text for the cta button.',
 			)
 		)
 	);
@@ -225,8 +225,8 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'cta_link',
 		array(
-			'default'               => '0',
-			'transport'             => 'refresh',
+			'default'   => '0',
+			'transport' => 'refresh',
 		)
 	);
 
@@ -236,12 +236,12 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 			$wp_customize,
 			'cta_link_control',
 			array(
-				'label'             => __( 'Page select for cta link', 'Wonkasoft_Starter' ),
-				'section'           => 'front_page_cta',
-				'settings'          => 'cta_link',
-				'type'              => 'dropdown-pages',
-				'allow_addition'    => true,
-				'description'       => 'Select page to parse page content in this section',
+				'label'          => __( 'Page select for cta link', 'Wonkasoft_Starter' ),
+				'section'        => 'front_page_cta',
+				'settings'       => 'cta_link',
+				'type'           => 'dropdown-pages',
+				'allow_addition' => true,
+				'description'    => 'Select page to parse page content in this section',
 			)
 		)
 	);
@@ -271,8 +271,8 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'section_qty',
 		array(
-			'default'           => '1',
-			'transport'         => 'refresh',
+			'default'   => '1',
+			'transport' => 'refresh',
 		)
 	);
 
@@ -302,8 +302,8 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 			$wp_customize->add_setting(
 				'home_page_section_color_' . $i,
 				array(
-					'default'               => '#ffffff',
-					'transport'             => 'refresh',
+					'default'   => '#ffffff',
+					'transport' => 'refresh',
 				)
 			);
 
@@ -313,11 +313,11 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 					$wp_customize,
 					'home_page_section_color_control' . $i,
 					array(
-						'label'             => 'Section Color ' . $i,
-						'section'           => 'front_page_sections',
-						'settings'          => 'home_page_section_color_' . $i,
-						'type'              => 'color',
-						'description'       => 'Select background color for this section',
+						'label'       => 'Section Color ' . $i,
+						'section'     => 'front_page_sections',
+						'settings'    => 'home_page_section_color_' . $i,
+						'type'        => 'color',
+						'description' => 'Select background color for this section',
 					)
 				)
 			);
@@ -325,8 +325,8 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 			$wp_customize->add_setting(
 				'home_page_section_bg_image_' . $i,
 				array(
-					'default'               => '',
-					'transport'             => 'refresh',
+					'default'   => '',
+					'transport' => 'refresh',
 				)
 			);
 
@@ -336,11 +336,11 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 					$wp_customize,
 					'home_page_section_bg_image_control' . $i,
 					array(
-						'label'             => 'Section Background Image ' . $i,
-						'section'           => 'front_page_sections',
-						'settings'          => 'home_page_section_bg_image_' . $i,
-						'type'              => 'image',
-						'description'       => 'Select background image for this section',
+						'label'       => 'Section Background Image ' . $i,
+						'section'     => 'front_page_sections',
+						'settings'    => 'home_page_section_bg_image_' . $i,
+						'type'        => 'image',
+						'description' => 'Select background image for this section',
 					)
 				)
 			);
@@ -348,8 +348,8 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 			$wp_customize->add_setting(
 				'home_page_section_' . $i,
 				array(
-					'default'               => '0',
-					'transport'             => 'refresh',
+					'default'   => '0',
+					'transport' => 'refresh',
 				)
 			);
 
@@ -359,12 +359,12 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 					$wp_customize,
 					'home_page_section_control' . $i,
 					array(
-						'label'             => 'Section ' . $i,
-						'section'           => 'front_page_sections',
-						'settings'          => 'home_page_section_' . $i,
-						'type'              => 'dropdown-pages',
-						'allow_addition'    => true,
-						'description'       => 'Select page to parse page content in this section',
+						'label'          => 'Section ' . $i,
+						'section'        => 'front_page_sections',
+						'settings'       => 'home_page_section_' . $i,
+						'type'           => 'dropdown-pages',
+						'allow_addition' => true,
+						'description'    => 'Select page to parse page content in this section',
 					)
 				)
 			);
@@ -388,16 +388,16 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 		)
 	);
 
-	 /**
-	  * Website Copyright color Setting
-	  *
-	  * @since  1.0.0
-	  */
+	/**
+	* Website Copyright color Setting
+	*
+	* @since  1.0.0
+	*/
 	$wp_customize->add_setting(
 		'copyright_bar_color',
 		array(
-			'default'           => '',
-			'transport'         => 'refresh',
+			'default'   => '',
+			'transport' => 'refresh',
 		)
 	);
 
@@ -416,16 +416,16 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 		)
 	);
 
-	 /**
-	  * Website Copyright message setting
-	  *
-	  * @since  1.0.0
-	  */
+	/**
+	* Website Copyright message setting
+	*
+	* @since  1.0.0
+	*/
 	$wp_customize->add_setting(
 		'copyright_bar_message',
 		array(
-			'default'           => '',
-			'transport'         => 'refresh',
+			'default'   => '',
+			'transport' => 'refresh',
 		)
 	);
 
