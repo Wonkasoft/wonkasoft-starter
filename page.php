@@ -12,9 +12,11 @@
  * @package Wonkasoft_Starter
  */
 
+global $wp_query;
+$pagename_class = ! empty( $wp_query->queried_object->post_name ) ? ' main-' . $wp_query->queried_object->post_name : '';
 get_header(); ?>
 	
-	<main id="main" class="site-main">
+	<main id="main" class="site-main<?php echo esc_attr( $pagename_class ); ?>">
 		
 			<?php
 			while ( have_posts() ) :
