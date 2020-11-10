@@ -4,6 +4,12 @@
   var header = ( document.querySelector( 'header#masthead' ) ) ? document.querySelector( 'header#masthead' ): '';
   window.onload = function() 
   {
+
+    if ( document.querySelector( '#wpadminbar' ) && document.querySelector( 'body.home' ) ) 
+    {
+      document.querySelector( 'header#masthead' ).style.top = document.querySelector( '#wpadminbar' ).offsetHeight + 'px';
+    }
+
     if ( document.querySelector( '#site-navigation' ) ) 
     {
       if ( window_Yoffset > 0 ) 
