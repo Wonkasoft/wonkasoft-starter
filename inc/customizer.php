@@ -443,6 +443,38 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 			)
 		)
 	);
+	/**
+	* Website Copyright message setting
+	*
+	* @since  1.0.0
+	*/
+	$wp_customize->add_setting(
+		'copyright_message_align',
+		array(
+			'default'   => 'center',
+			'transport' => 'refresh',
+		)
+	);
+
+	// Website Copyright Setting Control.
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'copyright_message_align_control',
+			array(
+				'label'       => __( 'Copyright Message Alignment Option', 'Wonkasoft_Starter' ),
+				'section'     => 'website_copyright_info',
+				'settings'    => 'copyright_message_align',
+				'type'        => 'select',
+				'description' => 'Copyright message alignment',
+				'choices'     => array(
+					'left'   => 'left',
+					'center' => 'center',
+					'right'  => 'right',
+				),
+			)
+		)
+	);
 	/*=====  End of Themes options for customizer  ======*/
 }
 add_action( 'customize_register', 'wonkasoft_starter_customize_register' );

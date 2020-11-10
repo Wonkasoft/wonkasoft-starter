@@ -124,7 +124,7 @@ footer#colophon {
 	@include prefix( box-shadow, 0 1px 4px 0 rgba( #000, .6 ), o moz webkit );
 
 	.site-info {
-		display: grid;
+		display: inline-grid;
 		grid-auto-columns: auto;
 		grid-auto-flow: row;
 
