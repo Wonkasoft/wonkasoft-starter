@@ -44,7 +44,9 @@ function fix_header()
     if ( header.classList.contains( 'fixed-nav' ) ) 
     {
       header.classList.remove( 'fixed-nav' );
-      document.querySelector( 'header#masthead' ).removeAttribute( 'style' );
+      if ( document.querySelector( '#wpadminbar' ) && 'undefined' === document.querySelector( 'body.home' ) ) {
+        document.querySelector( 'header#masthead' ).removeAttribute( 'style' );
+      }
     }
   }
 }
