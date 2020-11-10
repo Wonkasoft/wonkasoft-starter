@@ -468,9 +468,9 @@ function wonkasoft_starter_customize_register( $wp_customize ) {
 				'type'        => 'select',
 				'description' => 'Copyright message alignment',
 				'choices'     => array(
-					'left'   => 'left',
-					'center' => 'center',
-					'right'  => 'right',
+					'left'   => ' text-left',
+					'center' => ' text-center',
+					'right'  => ' text-right',
 				),
 			)
 		)
