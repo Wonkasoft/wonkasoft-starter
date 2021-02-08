@@ -28,6 +28,7 @@
 	grid-template-columns: 100%;
 	grid-auto-rows: auto;
 	grid-auto-flow: row;
+	overflow-x: hidden;
 }
 
 main#main {
