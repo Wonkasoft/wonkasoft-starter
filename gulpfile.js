@@ -7,7 +7,6 @@ path = require('path'),
 cleanCSS = require('gulp-clean-css'),
 plumber = require('gulp-plumber'),
 notify = require('gulp-notify'),
-browserSync = require('browser-sync').create(),
 fs = require('node-fs'),
 fse = require('fs-extra'),
 json = require('json-file'),
@@ -27,18 +26,6 @@ plumberErrorHandler = { errorHandler: notify.onError({
 })
 
 };
-
-gulp.task('browser-sync', function() {
-	browserSync.init({
-		proxy: {
-			target: local + siteName,
-			ws: true
-		},
-		watch: true,
-		https: true,
-		port: 4000
-	});
-});
 
 gulp.task('sass', function () {
 
@@ -131,4 +118,4 @@ gulp.task('watch', function() {
 
 });
 
-gulp.task('default', gulp.series(gulp.parallel('sass', 'sass2', 'js', 'browser-sync', 'watch')));
+gulp.task('default', gulp.series(gulp.parallel('sass', 'sass2', 'js', 'watch')));
